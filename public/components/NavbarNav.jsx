@@ -1,26 +1,26 @@
 var React = require('react'), 
-	NavListItem = require('./NavListItem');
+	NavListItem = require('./NavListItem'), 
+	NavListItemDropdown = require('./NavListItemDropdown');
 
 var NavbarNav = React.createClass({
 	render: function () {
+		var aboutLinks = [
+				{text: "Bio", active: false}, 
+				{text: "Resume", active: false}, 
+				{text: "Acknowledgements", active: true, href: "/about/acknowledgements/"}
+			], 
+			portfolioLinks = [
+				{text: "Tweet Cloud", active: true, href: "/portfolio/tag_cloud"}, 
+				{text: "Project 2", active: false}, 
+				{text: "Project 3", active: false}
+			];
+
 		return (
 			<ul className="nav navbar-nav">
-				<NavListItem classString="" href="/" linkText="Home" />
-				<li className="dropdown"><a href="#" className="dropdown-toggle text_link" data-toggle="dropdown">About <span className="caret"></span></a>
-					<ul className="dropdown-menu">
-						<li><a href="#"><em>Bio</em></a></li>
-						<li><a href="#"><em>Resume</em></a></li>
-						<li><a href="/about/acknowledgements/">Acknowledgements</a></li>
-					</ul>
-				</li>
-				<li><a href="#" className="dropdown-toggle text_link" data-toggle="dropdown">Portfolio <span className="caret"></span></a>
-					<ul className="dropdown-menu">
-						<li><a href="/portfolio/tag_cloud/">Tweet Cloud</a></li>
-						<li><a href="#"><em>Project 2</em></a></li>
-						<li><a href="#"><em>Project 3</em></a></li>
-					</ul>
-				</li>
-				<NavListItem classString="" href="/contact/" linkText="Contact" />
+				<NavListItem classString="navbar_nav_list_item" href="/" linkText="Home" />
+				<NavListItemDropdown classString="text_link navbar_nav_list_item" linkText="About" links={aboutLinks} />
+				<NavListItemDropdown classString="text_link navbar_nav_list_item" linkText="Portfolio" links={portfolioLinks} />
+				<NavListItem classString="navbar_nav_list_item" href="/contact/" linkText="Contact" />
 			</ul>			
 		);
 	}

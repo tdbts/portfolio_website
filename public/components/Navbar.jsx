@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'), 
+	NavbarContent = require('./NavbarContent');
 
 var Navbar = React.createClass({
 	render: function () {
@@ -16,9 +17,7 @@ var Navbar = React.createClass({
 						</button>
 						<a href="#" className="navbar-brand">{this.props.brand}</a>
 					</div>
-					<div style={collapseDivStyle} className="navbar-collapse collapse" id="myNavbar">
-						{this.props.content}
-					</div>
+					<NavbarContent />
 				</div>
 			</nav>										
 		);

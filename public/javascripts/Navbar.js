@@ -1,4 +1,5 @@
-var React = require('react');
+var React = require('react'), 
+	NavbarContent = require('./NavbarContent');
 
 var Navbar = React.createClass({displayName: "Navbar",
 	render: function () {
@@ -16,9 +17,7 @@ var Navbar = React.createClass({displayName: "Navbar",
 						), 
 						React.createElement("a", {href: "#", className: "navbar-brand"}, this.props.brand)
 					), 
-					React.createElement("div", {style: collapseDivStyle, className: "navbar-collapse collapse", id: "myNavbar"}, 
-						this.props.content
-					)
+					React.createElement(NavbarContent, null)
 				)
 			)										
 		);

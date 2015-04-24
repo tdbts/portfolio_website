@@ -4,8 +4,10 @@ var React = require('react'),
 
 var NavbarContent = React.createClass({displayName: "NavbarContent",
 	render: function () {
+		var collapseDivStyle = {height: "1px"};
+
 		return (
-			React.createElement("div", {id: "navbar_content"}, 
+			React.createElement("div", {style: collapseDivStyle, class: "navbar-collapse collapse", id: "myNavbar"}, 
 				React.createElement(NavbarNav, null), 
 				React.createElement(NavbarRight, null)			
 			)
