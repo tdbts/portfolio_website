@@ -13,12 +13,6 @@ a {
 
 .navbar {
 	background-color: #333333;
-	/* Setting height to 52px makes the nabar height look right, but breaks 
-	the collapse functionality ... need to figure out how to fix this */
-	/* ...but this problem still existed when I used React for the navbar...
-	this may be a good thing as if I figure out another way to solve this 
-	problem I may still be able to use React for my website  */
-	/*height: 52px;*/
 }
 
 .navbar, .navbar-nav {

@@ -12,7 +12,7 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 								React.createElement("h1", {id: "myName"}, "Vinny Sanchez")
 							), 
 							React.createElement("div", {id: "career_description_container"}, 
-								React.createElement("h3", {id: "careerDescription"}, React.createElement("strong", null, React.createElement("kbd", null, "Web Development / Data Makeover Artist")))
+								React.createElement("h4", {id: "careerDescription", className: "lead"}, React.createElement("strong", null, React.createElement("kbd", null, "Web Development / Data Makeover Artist")))
 							), 
 							React.createElement("div", {id: "welcome_button_container"}, 
 								React.createElement("a", {href: "#", className: "btn btn-success btn-lg", id: "welcomeButton"}, "More Info")
