@@ -1,0 +1,26 @@
+ul.nav.navbar-nav
+	li.navbar_nav_list_item.active
+		a.text_link(href="/") Home
+	li.navbar_nav_list_item.dropdown
+		a.dropdown-toggle.text_link(href="#" data-toggle="dropdown") About 
+			span.caret 
+		ul.dropdown-menu
+			li
+				a(href="#")
+					em Bio
+			li
+				a(href="#")
+					em Resume
+			li
+				a(href="/about/acknowledgements/") Acknowledgements
+	li.navbar_nav_list_item
+		a.dropdown-toggle.text_link(href="#" data-toggle="dropdown") Portfolio 
+			span.caret
+		ul.dropdown-menu
+			li 
+				a(href="/portfolio/tag_cloud") Tweet Cloud
+			li 
+				a(href="#")
+					em Project 2
+				a(href="#")
+					em Project 3
