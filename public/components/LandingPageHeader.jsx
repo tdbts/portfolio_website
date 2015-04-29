@@ -6,8 +6,7 @@ var LandingPageHeader = React.createClass({
 			<header id="top" className="header fullHeightWidth">
 				<div id="landing_page_elements_container" className="container">	
 					<div className="row">
-						<div className="col-md-2"></div>
-						<div className="col-md-8">
+						<div className="col-md-8 col-md-offset-2">
 							<div id="name_container">
 								<h1 id="myName">Vinny Sanchez</h1>
 							</div>
@@ -18,7 +17,6 @@ var LandingPageHeader = React.createClass({
 								<a href="#" className="btn btn-success btn-lg" id="welcomeButton">More Info</a>
 							</div>
 						</div>
-						<div className="col-md-2"></div>
 					</div>
 				</div>
 			</header>
