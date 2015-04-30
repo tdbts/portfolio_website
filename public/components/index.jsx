@@ -1,7 +1,7 @@
 var React = require('react'),  
-	LandingPageHeader = require('./LandingPageHeader');
+	PortfolioPageContent = require('./PortfolioPageContent');
 
 $(document).ready(function() {
 
-	React.render(<LandingPageHeader />, document.getElementById('page_content_wrapper'));
+	React.render(<PortfolioPageContent />, document.getElementById('page_content_wrapper'));
 });

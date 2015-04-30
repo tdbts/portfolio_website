@@ -37,31 +37,5 @@ a {
 	display: table-cell;
 	text-align: center;
 	vertical-align: middle;
-	padding-bottom: 75px;
+	top-bottom: 75px;
 }
-
-.header {
-	position: relative;
-	height: 200px;
-	top: 30%;
-}
-
-#landing_page_elements_container {
-	text-align: center;
-}
-
-#page_content_wrapper {	
-	background: url('/images/NY_basketball_ct_OPTIMIZED.jpg') no-repeat center center scroll;
-	border-bottom: 1px solid black;
-}
-
-#myName {
-	font-family: "Impact", "Palatino Linotype", "Book Antiqua", Palatino, serif;
-	letter-spacing: 5px;
-	font-size: 6em;
-	text-shadow: 1px 1px #797979;
-}
-
-#career_description_container {
-	margin-bottom: 20px;
-}	
