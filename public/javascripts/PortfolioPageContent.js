@@ -5,7 +5,7 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 	getInitialState: function () {
 		return {
 			currentPageView: this.determineViewToRender()
-		}
+		};
 	}, 
 
 	determineViewToRender: function () {
@@ -19,9 +19,9 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 		};
 
 		for (var view in views) {
-			if (window.location.pathname === views[view]['path']) {
-				viewToRender = views[view]['component'];
-			}
+			if (window.location.pathname === views[view].path) {
+				viewToRender = views[view].component;
+			}		
 		}
 
 		return viewToRender;

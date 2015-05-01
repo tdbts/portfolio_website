@@ -20,7 +20,7 @@ router.get('/', function(req, res) {
 router.get('/:path', function (req, res) {
 
 	req.viewOptions.activeTab = req.path.slice(0, -1); 
-	console.log(req.viewOptions);
+	
 	res.render('navigation', req.viewOptions);
 });
 
