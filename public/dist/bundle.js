@@ -19712,7 +19712,7 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 				$(this).find('a').css({color: "#333"});
 			}, 
 			function () {
-				$(this).find('a').css({color: "#e1e1e1"})
+				$(this).find('a').css({color: "#e1e1e1"});
 			}
 		);		
 	}, 
@@ -19772,11 +19772,19 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 				color: "#e1e1e1", 
 				textShadow: "2px 2px #2b2b2b", 
 				marginTop: "10px"
-			}, 
+			},
+
+			unbreakable: {
+				whiteSpace: "nowrap"
+			},
 
 			welcomeButton: {
 				opacity: "0.8", 
 				border: "1px solid #000"
+			}, 
+
+			welcomeButtonLink: {
+				textDecoration: "none"
 			}
 		};
 	}, 
@@ -19791,11 +19799,11 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 								React.createElement("h1", {id: "myName", style: this.getStyles().myName}, "Vinny Sanchez")
 							), 
 							React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 
-								React.createElement("h1", {id: "careerDescription", className: "lead", style: this.getStyles().careerDescription}, "Web Development / Data Makeover Artist")
+								React.createElement("h1", {id: "careerDescription", className: "lead", style: this.getStyles().careerDescription}, React.createElement("span", {style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {style: this.getStyles().unbreakable}, "Data Makeover Artist"))
 							), 
 							React.createElement("div", {id: "welcome_button_container"}, 
 								React.createElement("button", {className: "btn btn-lg", id: "welcomeButton", style: this.getStyles().welcomeButton}, 
-									React.createElement("a", {href: "#", id: "welcomeButtonLink"}, "More Info")
+									React.createElement("a", {href: "#", id: "welcomeButtonLink", style: this.getStyles().welcomeButtonLink}, "More Info")
 								)
 							)
 						)
