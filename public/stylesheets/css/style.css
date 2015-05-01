@@ -57,6 +57,17 @@ a {
 	background-color: #e1e1e1;
 }
 
-.buttonHoverFade a:hover {
+/*.buttonHoverFade a:hover {
 	color: #333;
+}*/
+
+/* animate.min.css */
+.customizedAnimation {
+	animation-delay: .5s;
+	-webkit-animation-delay: .5s;
+}
+
+.customizedAnimationCareerDescription {
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;	
 }

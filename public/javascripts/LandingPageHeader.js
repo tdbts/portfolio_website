@@ -1,4 +1,7 @@
-var React = require('react');
+var React = require('react'), 
+	Name = require('./Name'), 
+	CareerDescription = require('./CareerDescription'), 
+	WelcomeButton = require('./WelcomeButton');
 
 var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 	getInitialState: function () {
@@ -18,30 +21,25 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 		$(domNode).find(selector).addClass(classToAdd);
 	}, 
 
-	addButtonTextTransition: function () {
-		$('.buttonHoverFade').hover(
-			function () {
-				$(this).find('a').css({color: "#333"});
-			}, 
-			function () {
-				$(this).find('a').css({color: "#e1e1e1"});
-			}
-		);		
+	animateCareerDescription: function () {
+		var self = this,
+			descriptionNode = $(React.findDOMNode(this.refs.careerDescription)).find('#careerDescription');
+
+		$(React.findDOMNode(this)).find('#landing_page_elements_container').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+			self.addClassToDOMNode(descriptionNode, 'animated tada customizedAnimationCareerDescription');
+		});		
 	}, 
 
-	addTransitionsToButton: function () {
-		var domNode = React.findDOMNode(this);
-
-		this.addClassToDOMNode('#welcomeButton', 'buttonHoverFade');
-		this.addClassToDOMNode('#welcomeButtonLink', 'buttonTextFade');
-
-		this.addButtonTextTransition();		
+	startAnimation: function () {
+		this.addClassToDOMNode('#landing_page_elements_container', 'customizedAnimation');
+	
+		this.animateCareerDescription();
 	}, 
 
 	componentDidMount: function () {
 		window.addEventListener('resize', this.handleResize);
 
-		this.addTransitionsToButton();		
+		this.startAnimation();		
 	}, 
 
 	componentWillUnmount: function () {
@@ -60,43 +58,6 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 				height: "200px", 
 				top: this.state.windowHeight < 500 ? "5%" : 
 					this.state.windowWidth < 621 ? "15%" : "30%"
-			}, 
-
-			nameContainer: {
-				display: "inline-block"
-			},
-
-			myName: {
-				fontFamily: "'Impact', 'Palatino Linotype', 'Book Antiqua', Palatino, serif", 
-				letterSpacing: "5px", 
-				fontSize: "6em", 
-				textShadow: "1px 1px #797979", 
-				borderBottom: "1px solid black"
-			}, 
-
-			careerDescriptionContainer: {
-				marginBottom: "20px"
-			}, 
-
-			careerDescription: {
-				fontSize: "1.75em",
-				letterSpacing: "3px",  
-				color: "#e1e1e1", 
-				textShadow: "2px 2px #2b2b2b", 
-				marginTop: "10px"
-			},
-
-			unbreakable: {
-				whiteSpace: "nowrap"
-			},
-
-			welcomeButton: {
-				opacity: "0.8", 
-				border: "1px solid #000"
-			}, 
-
-			welcomeButtonLink: {
-				textDecoration: "none"
 			}
 		};
 	}, 
@@ -104,20 +65,12 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 	render: function () {
 		return (
 			React.createElement("header", {id: "top", className: "header fullHeightWidth", style: this.getStyles().top}, 
-				React.createElement("div", {id: "landing_page_elements_container", className: "container", style: this.getStyles().landingPageElementsContainer}, 	
+				React.createElement("div", {id: "landing_page_elements_container", className: "container animated bounceInDown", style: this.getStyles().landingPageElementsContainer}, 	
 					React.createElement("div", {className: "row"}, 
 						React.createElement("div", {className: "col-md-8 col-md-offset-2"}, 
-							React.createElement("div", {id: "name_container", style: this.getStyles().nameContainer}, 
-								React.createElement("h1", {id: "myName", style: this.getStyles().myName}, "Vinny Sanchez")
-							), 
-							React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 
-								React.createElement("h1", {id: "careerDescription", className: "lead", style: this.getStyles().careerDescription}, React.createElement("span", {style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {style: this.getStyles().unbreakable}, "Data Makeover Artist"))
-							), 
-							React.createElement("div", {id: "welcome_button_container"}, 
-								React.createElement("button", {className: "btn btn-lg", id: "welcomeButton", style: this.getStyles().welcomeButton}, 
-									React.createElement("a", {href: "#", id: "welcomeButtonLink", style: this.getStyles().welcomeButtonLink}, "More Info")
-								)
-							)
+							React.createElement(Name, null), 
+							React.createElement(CareerDescription, {ref: "careerDescription"}), 
+							React.createElement(WelcomeButton, null)
 						)
 					)
 				)
