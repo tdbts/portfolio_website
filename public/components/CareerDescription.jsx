@@ -20,12 +20,22 @@ var CareerDescription = React.createClass({
 			}			
 		};
 	}, 
-	
+
+	getRefDOMNode: function (ref) {
+		
+		return React.findDOMNode(this.refs[ref]);
+	},	
+
+	componentDidMount: function () {
+		$(this.getRefDOMNode('descriptionLeft')).addClass('offPageLeft');
+		$(this.getRefDOMNode('descriptionRight')).addClass('offPageRight');	
+	}, 
+
 	render: function () {
 		return (
 			<div id="career_description_container" style={this.getStyles().careerDescriptionContainer}>
 				<h1 id="careerDescription" className="lead" style={this.getStyles().careerDescription}>
-					<span style={this.getStyles().unbreakable}>Web Development /</span> <span style={this.getStyles().unbreakable}>Data Makeover Artist</span>
+					<span id="descriptionLeft" ref="descriptionLeft" style={this.getStyles().unbreakable}>Web Development /</span> <span id="descriptionRight" ref="descriptionRight" style={this.getStyles().unbreakable}>Data Makeover Artist</span>
 				</h1>
 			</div>			
 		);

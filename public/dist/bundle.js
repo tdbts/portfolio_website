@@ -19708,12 +19708,22 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 			}			
 		};
 	}, 
-	
+
+	getRefDOMNode: function (ref) {
+		
+		return React.findDOMNode(this.refs[ref]);
+	},	
+
+	componentDidMount: function () {
+		$(this.getRefDOMNode('descriptionLeft')).addClass('offPageLeft');
+		$(this.getRefDOMNode('descriptionRight')).addClass('offPageRight');	
+	}, 
+
 	render: function () {
 		return (
 			React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 
 				React.createElement("h1", {id: "careerDescription", className: "lead", style: this.getStyles().careerDescription}, 
-					React.createElement("span", {style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {style: this.getStyles().unbreakable}, "Data Makeover Artist")
+					React.createElement("span", {id: "descriptionLeft", ref: "descriptionLeft", style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {id: "descriptionRight", ref: "descriptionRight", style: this.getStyles().unbreakable}, "Data Makeover Artist")
 				)
 			)			
 		);
@@ -19740,6 +19750,11 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 		this.setState({windowWidth: window.innerWidth});
 	}, 
 
+	getRefDOMNode: function (ref) {
+		
+		return React.findDOMNode(this.refs[ref]);
+	}, 	
+
 	addClassToDOMNode: function (selector, classToAdd) {
 		var domNode = React.findDOMNode(this);
 
@@ -19748,10 +19763,13 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 
 	animateCareerDescription: function () {
 		var self = this,
-			descriptionNode = $(React.findDOMNode(this.refs.careerDescription)).find('#careerDescription');
+			descriptionLeft = $(this.getRefDOMNode('careerDescription')).find('#descriptionLeft'), 
+			descriptionRight = $(this.getRefDOMNode('careerDescription')).find('#descriptionRight');
 
+		$(descriptionRight).css({position: "relative"});
 		$(React.findDOMNode(this)).find('#landing_page_elements_container').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-			self.addClassToDOMNode(descriptionNode, 'animated tada customizedAnimationCareerDescription');
+			$(descriptionLeft).animate({left: "0px"});
+			$(descriptionRight).animate({right: "0px"});
 		});		
 	}, 
 
@@ -19885,7 +19903,7 @@ var React = require('react');
 var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 	getStyles: function () {
 		return {
-			welcomeButtonContainer: {
+			welcomeButtonContainer: { 
 				padding: "10px"
 			}, 
 
@@ -19904,7 +19922,7 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 		
 		return React.findDOMNode(this.refs[ref]);
 	}, 
-	
+
 	addClassToDOMNode: function (selector, classToAdd) {
 		var domNode = React.findDOMNode(this);
 

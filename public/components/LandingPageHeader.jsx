@@ -15,6 +15,11 @@ var LandingPageHeader = React.createClass({
 		this.setState({windowWidth: window.innerWidth});
 	}, 
 
+	getRefDOMNode: function (ref) {
+		
+		return React.findDOMNode(this.refs[ref]);
+	}, 	
+
 	addClassToDOMNode: function (selector, classToAdd) {
 		var domNode = React.findDOMNode(this);
 
@@ -23,10 +28,13 @@ var LandingPageHeader = React.createClass({
 
 	animateCareerDescription: function () {
 		var self = this,
-			descriptionNode = $(React.findDOMNode(this.refs.careerDescription)).find('#careerDescription');
+			descriptionLeft = $(this.getRefDOMNode('careerDescription')).find('#descriptionLeft'), 
+			descriptionRight = $(this.getRefDOMNode('careerDescription')).find('#descriptionRight');
 
+		$(descriptionRight).css({position: "relative"});
 		$(React.findDOMNode(this)).find('#landing_page_elements_container').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
-			self.addClassToDOMNode(descriptionNode, 'animated tada customizedAnimationCareerDescription');
+			$(descriptionLeft).animate({left: "0px"});
+			$(descriptionRight).animate({right: "0px"});
 		});		
 	}, 
 

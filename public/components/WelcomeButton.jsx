@@ -3,7 +3,7 @@ var React = require('react');
 var WelcomeButton = React.createClass({
 	getStyles: function () {
 		return {
-			welcomeButtonContainer: {
+			welcomeButtonContainer: { 
 				padding: "10px"
 			}, 
 
@@ -22,7 +22,7 @@ var WelcomeButton = React.createClass({
 		
 		return React.findDOMNode(this.refs[ref]);
 	}, 
-	
+
 	addClassToDOMNode: function (selector, classToAdd) {
 		var domNode = React.findDOMNode(this);
 
