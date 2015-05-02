@@ -32,6 +32,7 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 			descriptionRight = $(this.getRefDOMNode('careerDescription')).find('#descriptionRight');
 
 		$(descriptionRight).css({position: "relative"});
+		
 		$(React.findDOMNode(this)).find('#landing_page_elements_container').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
 			$(descriptionLeft).animate({left: "0px"});
 			$(descriptionRight).animate({right: "0px"});
