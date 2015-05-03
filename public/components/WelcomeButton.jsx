@@ -1,6 +1,13 @@
 var React = require('react');
 
 var WelcomeButton = React.createClass({
+	getInitialState: function () {
+		return {
+			welcomeButtonClassString: "btn btn-lg", 
+			welcomeButtonLinkClassString: ""
+		};
+	}, 
+
 	getStyles: function () {
 		return {
 			welcomeButtonContainer: { 
@@ -21,12 +28,6 @@ var WelcomeButton = React.createClass({
 	getRefDOMNode: function (ref) {
 		
 		return React.findDOMNode(this.refs[ref]);
-	}, 
-
-	addClassToDOMNode: function (selector, classToAdd) {
-		var domNode = React.findDOMNode(this);
-
-		$(domNode).find(selector).addClass(classToAdd);
 	}, 
 
 	changeLinkTextColorTo: function (colorHex) {
@@ -50,8 +51,8 @@ var WelcomeButton = React.createClass({
 	}, 
 
 	addTransitionsToButton: function () {
-		this.addClassToDOMNode('#welcomeButton', 'buttonHoverFade');
-		this.addClassToDOMNode('#welcomeButtonLink', 'buttonTextFade');
+		this.setState({welcomeButtonClassString: this.state.welcomeButtonClassString + ' buttonHoverFade'});
+		this.setState({welcomeButtonLinkClassString: this.state.welcomeButtonLinkClassString + ' buttonTextFade'});
 		this.addButtonTextTransition();		
 	}, 
 
@@ -67,8 +68,8 @@ var WelcomeButton = React.createClass({
 	render: function () {
 		return (
 			<div id="welcome_button_container" style={this.getStyles().welcomeButtonContainer}>
-				<button ref="welcomeButton" className="btn btn-lg" id="welcomeButton" style={this.getStyles().welcomeButton}>
-					<a ref="welcomeButtonLink" href="#" id="welcomeButtonLink" style={this.getStyles().welcomeButtonLink}>More Info</a>
+				<button id="welcomeButton" className={this.state.welcomeButtonClassString} ref="welcomeButton" style={this.getStyles().welcomeButton}>
+					<a id="welcomeButtonLink" className={this.state.welcomeButtonLinkClassString} ref="welcomeButtonLink" href="#" style={this.getStyles().welcomeButtonLink}>More Info</a>
 				</button>
 			</div>			
 		);

@@ -22,11 +22,6 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 		};
 	}, 
 
-	getRefDOMNode: function (ref) {
-		
-		return React.findDOMNode(this.refs[ref]);
-	},	
-
 	render: function () {
 		return (
 			React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 

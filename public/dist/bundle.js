@@ -19710,11 +19710,6 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 		};
 	}, 
 
-	getRefDOMNode: function (ref) {
-		
-		return React.findDOMNode(this.refs[ref]);
-	},	
-
 	render: function () {
 		return (
 			React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 
@@ -19898,6 +19893,13 @@ module.exports = PortfolioPageContent;
 var React = require('react');
 
 var WelcomeButton = React.createClass({displayName: "WelcomeButton",
+	getInitialState: function () {
+		return {
+			welcomeButtonClassString: "btn btn-lg", 
+			welcomeButtonLinkClassString: ""
+		};
+	}, 
+
 	getStyles: function () {
 		return {
 			welcomeButtonContainer: { 
@@ -19947,8 +19949,8 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 	}, 
 
 	addTransitionsToButton: function () {
-		this.addClassToDOMNode('#welcomeButton', 'buttonHoverFade');
-		this.addClassToDOMNode('#welcomeButtonLink', 'buttonTextFade');
+		this.setState({welcomeButtonClassString: this.state.welcomeButtonClassString + ' buttonHoverFade'});
+		this.setState({welcomeButtonLinkClassString: this.state.welcomeButtonLinkClassString + ' buttonTextFade'});
 		this.addButtonTextTransition();		
 	}, 
 
@@ -19964,8 +19966,8 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 	render: function () {
 		return (
 			React.createElement("div", {id: "welcome_button_container", style: this.getStyles().welcomeButtonContainer}, 
-				React.createElement("button", {ref: "welcomeButton", className: "btn btn-lg", id: "welcomeButton", style: this.getStyles().welcomeButton}, 
-					React.createElement("a", {ref: "welcomeButtonLink", href: "#", id: "welcomeButtonLink", style: this.getStyles().welcomeButtonLink}, "More Info")
+				React.createElement("button", {id: "welcomeButton", className: this.state.welcomeButtonClassString, ref: "welcomeButton", style: this.getStyles().welcomeButton}, 
+					React.createElement("a", {id: "welcomeButtonLink", className: this.state.welcomeButtonLinkClassString, ref: "welcomeButtonLink", href: "#", style: this.getStyles().welcomeButtonLink}, "More Info")
 				)
 			)			
 		);
