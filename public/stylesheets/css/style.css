@@ -5,6 +5,7 @@ html, body, .fullHeightWidth {
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
 }
 
 a {
