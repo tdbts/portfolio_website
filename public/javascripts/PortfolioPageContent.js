@@ -1,5 +1,5 @@
 var React = require('react'), 
-	LandingPageHeader = require('./LandingPageHeader');
+	LandingPage = require('./LandingPage'); 
 
 var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent",
 	getInitialState: function () {
@@ -14,7 +14,7 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 		var views = {
 			home: {
 				path: '/', 
-				component: React.createElement(LandingPageHeader, null)
+				component: React.createElement(LandingPage, null)
 			}
 		};
 

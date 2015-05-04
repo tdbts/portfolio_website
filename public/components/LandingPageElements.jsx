@@ -14,10 +14,6 @@ var LandingPageHeader = React.createClass({
 
 	getStyles: function () {
 		return {
-			top: {
-				background: "url('/images/NY_basketball_ct_OPTIMIZED.jpg') no-repeat center center scroll"
-			}, 
-
 			landingPageElementsContainer: {
 				textAlign: "center", 
 				position: "relative", 
@@ -44,7 +40,7 @@ var LandingPageHeader = React.createClass({
 
 		$(descriptionRight).css({position: "relative"});
 		
-		$(React.findDOMNode(this)).find('#landing_page_elements_container').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+		$(React.findDOMNode(this)).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
 			$(descriptionLeft).animate({left: "0px"});
 			$(descriptionRight).animate({right: "0px"});
 		});		
@@ -70,17 +66,15 @@ var LandingPageHeader = React.createClass({
 
 	render: function () {
 		return (
-			<header id="top" className="header fullHeightWidth" style={this.getStyles().top}>
-				<div id="landing_page_elements_container" className={this.state.headerClassString} style={this.getStyles().landingPageElementsContainer}>	
-					<div className="row">
-						<div className="col-md-8 col-md-offset-2">
-							<Name />
-							<CareerDescription ref="careerDescription" />
-							<WelcomeButton />
-						</div>
+			<div id="landing_page_elements_container" className={this.state.headerClassString} style={this.getStyles().landingPageElementsContainer}>	
+				<div className="row">
+					<div className="col-md-8 col-md-offset-2">
+						<Name />
+						<CareerDescription ref="careerDescription" />
+						<WelcomeButton />
 					</div>
 				</div>
-			</header>
+			</div>
 		);
 	}
 });
