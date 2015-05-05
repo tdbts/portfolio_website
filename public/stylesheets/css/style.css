@@ -6,6 +6,7 @@ html, body, .fullHeightWidth {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -82,4 +83,35 @@ a {
 
 .buttonHoverFade:hover {
 	background-color: #e1e1e1;
+}
+
+#page_header {
+	margin-left: 15px;
+}
+
+#content_container {
+	margin-top: 50px;
+}
+
+#scrollable {
+	height: 400px;
+	overflow: scroll;
+	border: 1px solid #CDCDCD;
+	background-color: #EEEEEE;
+}
+
+.list-group li.active,
+.list-group li.active:hover,
+.list-group li.active:focus {
+	background: #9CF;
+}
+
+.list-group li.active a,
+.list-group li.active:hover,
+.list-group li.focus a {
+	color: #FFF;
+}
+
+.text_content {
+	padding: 5px;
 }

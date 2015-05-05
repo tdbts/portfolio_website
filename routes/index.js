@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express'), 
+	router = express.Router(), 
+	setActiveTab = require('../src/setActiveTab');
 
 router.get('*', function (req, res, next) {
 	req.activeRoute = req.activeRoute || '/'; 
@@ -17,10 +18,10 @@ router.get('/', function(req, res) {
 	res.render('navigation', req.viewOptions);
 });
 
-router.get('/:path', function (req, res) {
+router.get('/:path/*', function (req, res, next) {
 
-	req.viewOptions.activeTab = req.path.slice(0, -1); 
-	
+	setActiveTab(req);
+
 	res.render('navigation', req.viewOptions);
 });
 

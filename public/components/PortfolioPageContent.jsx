@@ -1,5 +1,6 @@
 var React = require('react'), 
-	LandingPage = require('./LandingPage'); 
+	LandingPage = require('./LandingPage'), 
+	Acknowledgements = require('./Acknowledgements'); 
 
 var PortfolioPageContent = React.createClass({
 	getInitialState: function () {
@@ -15,6 +16,10 @@ var PortfolioPageContent = React.createClass({
 			home: {
 				path: '/', 
 				component: <LandingPage />
+			}, 
+			acknowledgements: {
+				path: '/about/acknowledgements/', 
+				component: <Acknowledgements />
 			}
 		};
 
