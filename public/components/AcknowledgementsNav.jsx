@@ -16,7 +16,7 @@ var AcknowledgementsNav = React.createClass({
 
 	render: function () {
 		return (
-			<div id="target_nav" className="col-md-3 nav">
+			<div id="target_nav">
 				<ul className="nav list-group">
 					{this.getNavMenuItems(this.props.menuOptions)}
 				</ul>

@@ -1,11 +1,21 @@
 var gulp = require('gulp'), 
+	less = require('gulp-less'), 
 	jshint = require('gulp-jshint'), 
 	nodemon = require('gulp-nodemon'), 
 	notify = require('gulp-notify'), 
 	stylish = require('jshint-stylish'), 
 	source = require('vinyl-source-stream'), 
 	browserify = require('browserify'), 
-	react = require('gulp-react');
+	react = require('gulp-react'), 
+	logChanges = require('./src/logChanges');
+
+gulp.task('build-less', function () {
+	console.log("BUILDING LESS.");
+
+	return gulp.src('./public/stylesheets/less/styles.less')
+		.pipe(less())
+		.pipe(gulp.dest('./public/stylesheets/css'));
+});
 
 gulp.task('transform', function () {
 	gulp.src(['public/components/*.jsx'])
@@ -44,15 +54,21 @@ gulp.task('jshint', function () {
 }); 
 
 gulp.task('watch', function () {
-	var sourcefiles = [
+	var jsHintSourceFiles = [
 		'src/*.js', 
+		// 'public/javascripts/*.js', 
 		'routes/*.js', 
-		'gulpfile.js'
+		'gulpfile.js', 
 	];
 
-	gulp.watch(sourcefiles, ['jshint']);
-
-	gulp.watch('public/components/*.jsx', ['transform', 'browserify']);
+	var jsHintWatcher = gulp.watch(jsHintSourceFiles, ['jshint']), 
+		lessWatcher = gulp.watch('./public/stylesheets/less/*.less', ['build-less']), 
+		componentWatcher = gulp.watch('./public/components/*.jsx', ['transform', 'browserify']), 
+		watchers = [jsHintWatcher, lessWatcher, componentWatcher]; 
+	
+	watchers.forEach(function (watcher) {
+		logChanges(watcher);
+	});
 });
 
 gulp.task('server-restart', function () {
@@ -74,4 +90,4 @@ gulp.task('server-restart', function () {
 });
 
 gulp.task('default', ['watch']);
-gulp.task('build', ['jshint', 'transform', 'browserify', 'server-restart']);
+gulp.task('build', ['jshint', 'build-less', 'transform', 'browserify', 'server-restart']);

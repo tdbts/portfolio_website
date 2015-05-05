@@ -10,7 +10,7 @@ var Name = React.createClass({displayName: "Name",
 			myName: {
 				fontFamily: "'Impact', 'Palatino Linotype', 'Book Antiqua', Palatino, serif", 
 				letterSpacing: "5px", 
-				fontSize: "6em", 
+				fontSize: "5.5em", 
 				textShadow: "1px 1px 5px #797979", 
 				borderBottom: "1px solid black", 
 				marginBottom: "15px"

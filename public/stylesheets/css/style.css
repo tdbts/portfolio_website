@@ -85,19 +85,8 @@ a {
 	background-color: #e1e1e1;
 }
 
-#page_header {
-	margin-left: 15px;
-}
-
 #content_container {
 	margin-top: 50px;
-}
-
-#scrollable {
-	height: 400px;
-	overflow: scroll;
-	border: 1px solid #CDCDCD;
-	background-color: #EEEEEE;
 }
 
 .list-group li.active,

@@ -50,7 +50,7 @@ var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 							React.createElement("p", null, React.createElement("a", {href: "http://www.getbootstrap.com"}, "Bootstrap"), " provided the HTML/CSS/Javascript framework for layout and responsiveness."), 
 							React.createElement("p", null, "The ", React.createElement("a", {href: "http://www.jquery.com"}, "jQuery"), " Javascript library was used everywhere to produce the site's functionality."), 
 							React.createElement("p", null, "The nifty icons used throughout the page were created by ", React.createElement("a", {href: "http://www.fortawesome.github.io/Font-Awesome"}, "Font Awesome"), "."), 
-							React.createElement("p", null, "Version control for the building of the site was made possible by ", React.createElement("a", {href: "http://www.git-scm.com"}, "Git"), ".")
+							React.createElement("p", null, "Version control for building the site was made possible by ", React.createElement("a", {href: "http://www.git-scm.com"}, "Git"), ".")
 						)
 					)
 				},  
@@ -95,20 +95,30 @@ var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 		};	
 	}, 	
 
+	getStyles: function () {
+		return {
+			acknowledgementsContainer: {
+				marginTop: "50px"
+			}
+		}; 
+	}, 
+
 	render: function () {
 		return (
-			React.createElement("div", {id: "acknowledgements_container", className: "container"}, 
-				React.createElement("div", {id: "page_header_container"}, 
-					React.createElement("h1", {id: "page_header"}, "Acknowledgements")
+			React.createElement("div", {id: "acknowledgements_container", style: this.getStyles().acknowledgementsContainer}, 
+				React.createElement("div", {id: "page_header_container", className: "container"}, 
+					React.createElement("h1", {id: "page_header", className: "page-header"}, "Acknowledgements")
 				), 
-				React.createElement("div", {className: "row"}, 
-					React.createElement("div", {id: "acknowledgements_nav_container"}, 
-						React.createElement(AcknowledgementsNav, {ref: "menuNav", menuOptions: this.props.menuOptions})
-					), 
-					React.createElement("div", {id: "acknowledgements_scrollable_container"}, 
-						React.createElement(AcknowledgementsScrollable, {ref: "scrollable", scrollableSections: this.props.scrollableSections})
+				React.createElement("div", {id: "scrollspy_container", className: "container"}, 
+					React.createElement("div", {className: "row"}, 
+						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
+							React.createElement(AcknowledgementsNav, {ref: "menuNav", menuOptions: this.props.menuOptions})
+						), 
+						React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
+							React.createElement(AcknowledgementsScrollable, {ref: "scrollable", scrollableSections: this.props.scrollableSections})
+						)
 					)
-				)
+				)	
 			)
 		);
 	}

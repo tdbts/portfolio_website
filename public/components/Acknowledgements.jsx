@@ -50,7 +50,7 @@ var Acknowledgements = React.createClass({
 							<p><a href="http://www.getbootstrap.com">Bootstrap</a> provided the HTML/CSS/Javascript framework for layout and responsiveness.</p>
 							<p>The <a href="http://www.jquery.com">jQuery</a> Javascript library was used everywhere to produce the site&apos;s functionality.</p>
 							<p>The nifty icons used throughout the page were created by <a href="http://www.fortawesome.github.io/Font-Awesome">Font Awesome</a>.</p>
-							<p>Version control for the building of the site was made possible by <a href="http://www.git-scm.com">Git</a>.</p>
+							<p>Version control for building the site was made possible by <a href="http://www.git-scm.com">Git</a>.</p>
 						</div>
 					)
 				},  
@@ -95,20 +95,30 @@ var Acknowledgements = React.createClass({
 		};	
 	}, 	
 
+	getStyles: function () {
+		return {
+			acknowledgementsContainer: {
+				marginTop: "50px"
+			}
+		}; 
+	}, 
+
 	render: function () {
 		return (
-			<div id="acknowledgements_container" className="container">
-				<div id="page_header_container">
-					<h1 id="page_header">Acknowledgements</h1>
+			<div id="acknowledgements_container" style={this.getStyles().acknowledgementsContainer}>
+				<div id="page_header_container" className="container">
+					<h1 id="page_header" className="page-header">Acknowledgements</h1>
 				</div>
-				<div className="row">
-					<div id="acknowledgements_nav_container">
-						<AcknowledgementsNav ref="menuNav" menuOptions={this.props.menuOptions} />
+				<div id="scrollspy_container" className="container">
+					<div className="row">
+						<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
+							<AcknowledgementsNav ref="menuNav" menuOptions={this.props.menuOptions} />
+						</div>
+						<div id="acknowledgements_scrollable_container" className="col-md-8">
+							<AcknowledgementsScrollable ref="scrollable" scrollableSections={this.props.scrollableSections} />
+						</div>
 					</div>
-					<div id="acknowledgements_scrollable_container">
-						<AcknowledgementsScrollable ref="scrollable" scrollableSections={this.props.scrollableSections} />
-					</div>
-				</div>
+				</div>	
 			</div>
 		);
 	}

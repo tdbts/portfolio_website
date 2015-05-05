@@ -18,7 +18,7 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 				textAlign: "center", 
 				position: "relative", 
 				height: "200px", 
-				top: this.state.windowHeight < 500 ? "5%" : 
+				top: this.state.windowHeight < 500 ? "10%" : 
 					this.state.windowWidth < 621 ? "15%" : "30%"
 			}
 		};
