@@ -3,5 +3,5 @@ var React = require('react'),
 
 $(document).ready(function() {
 
-	React.render(<PortfolioPageContent />, document.getElementById('page_content_wrapper'));
+		React.render(<PortfolioPageContent />, document.getElementById('page_content_wrapper'));
 });

@@ -117,8 +117,8 @@ var Acknowledgements = React.createClass({
 
 	getStyles: function () {
 		return {
-			acknowledgementsContainer: {
-				marginTop: "50px"
+			acknowledgementsContainer: { 
+				backgroundColor: "#fbfbfb"
 			}
 		}; 
 	}, 
@@ -132,10 +132,10 @@ var Acknowledgements = React.createClass({
 				<div id="scrollspy_container" className="container">
 					<div className="row">
 						<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
-							<AcknowledgementsNav ref="menuNav" menuOptions={this.props.menuOptions} />
+							<AcknowledgementsNav menuOptions={this.props.menuOptions} />
 						</div>
 						<div id="acknowledgements_scrollable_container" className="col-md-8">
-							<AcknowledgementsScrollable ref="scrollable" scrollableSections={this.props.scrollableSections} />
+							<AcknowledgementsScrollable scrollableSections={this.props.scrollableSections} />
 						</div>
 					</div>
 				</div>	
