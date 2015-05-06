@@ -6547,6 +6547,19 @@ button.close {
     display: none !important;
   }
 }
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+@media (min-width: 992px) {
+  body {
+    padding-top: 50px;
+  }
+}
+a {
+  color: #00B7FF;
+}
 #webpage_navbar {
   margin-bottom: 0px;
 }
@@ -6584,7 +6597,7 @@ button.close {
 }
 @media (min-width: 992px) {
   #acknowledgements_container {
-    margin-top: 50px;
+    margin-top: 10px;
     padding: 0px 250px;
   }
 }
@@ -6623,4 +6636,135 @@ button.close {
     height: 400px;
     overflow: scroll;
   }
+}
+#resource_introduction {
+  margin-top: 35px;
+}
+#wallpaper {
+  background: url('../../images/road_almost_bw_OPTIMIZED.jpg') no-repeat center center scroll;
+  background-size: cover;
+}
+.contact_icon {
+  color: #38312a;
+  -moz-transition: color2s, transform 2s;
+  transition: color2s, transform 2s;
+}
+.contact_icon:hover {
+  color: #CDCAD0;
+  transform: rotateY(360deg);
+}
+/* CSS INFLUENCED BY MARY LOU (TYMPANUS.NET) */
+.ch-grid {
+  margin: 175px 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+.ch-grid:after,
+.ch-item:before {
+  content: '';
+  display: table;
+}
+.ch-grid:after {
+  clear: both;
+}
+.ch-grid li {
+  width: 220px;
+  height: 220px;
+  display: inline-block;
+  margin: 20px;
+}
+.ch-item,
+.ch-info > div {
+  border-radius: 50%;
+}
+.ch-item {
+  position: relative;
+  cursor: default;
+  -webkit-perspective: 900px;
+  -moz-perspective: 900px;
+  perspective: 900px;
+}
+.ch-info,
+.ch-info > div,
+h1 {
+  position: relative;
+}
+.ch-info {
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+.ch-info > div {
+  display: block;
+  background-position: center center;
+  -webkit-transition: all 0.4 linear;
+  -moz-transition: all 0.4 linear;
+  -o-transition: all 0.4 linear;
+  transition: all 0.4 linear;
+  -ms-transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  -o-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+}
+.ch-info .ch-info-front {
+  box-shadow: inset 0 0 0 16px rgba(0, 0, 0, 0.3);
+}
+.ch-info .ch-info-back {
+  -webkit-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
+  -moz-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
+  -o-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
+  transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
+  background: #000;
+}
+.contact_circle {
+  background-image: url('../../images/NY_street_through_fence.jpg');
+}
+.ch-info h3,
+.ch-info p {
+  color: #fff;
+  padding: 10px 0 0 0;
+}
+.ch-info h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 24px;
+  margin: 0px;
+  height: 50px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-shadow: 0 0 1px #ffffff, 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.ch-info p {
+  font-style: italic;
+  margin: 0 30px;
+  font-size: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.ch-info p a {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 1px;
+  padding-top: 4px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+.ch-info p a:hover {
+  color: rgba(255, 242, 34, 0.8);
+}
+.ch-item:hover .ch-info-front,
+.ch-info .ch-info-back {
+  opacity: 50;
+}
+.ch-item:hover .ch-info-back {
+  -webkit-transform: rotate3d(1, 0, 0, 0deg);
+  -moz-transform: rotate3d(1, 0, 0, 0deg);
+  -o-transform: rotate3d(1, 0, 0, 0deg);
+  transform: rotate3d(1, 0, 0, 0deg);
+  opacity: 1;
 }

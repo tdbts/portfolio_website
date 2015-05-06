@@ -1,31 +1,28 @@
-li
-	a#mail_icon.link_icon(href="#emailModal" role="button" data-toggle="modal")
-		span.fa.fa-envelope.fa-2x.bar-icon(data-toggle="tooltip" data-placement="bottom" title="Email")
-	#emailModal.modal.fade(tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
-		.modal-dialog
-			.modal-content
-				.modal-header
-					button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
-					h4.modal-title Contact Form
-				.modal-body
-					form#emailForm.form-horizontal(action="#" name="commentform" method="post")
-						.form-group
-							label.control-label.col-md-4(for="first_name")
-							.col-md-6
-								input#first_name.form-control(type="text" name="first_name" placeholder="First Name")
-						.form-group
-							label.control-label.col-md-4(for="last_name") Last Name
-							.col-md-6
-								input#last_name.form-control(type="text" placeholder="Last Name")
-						.form-group
-							label.control-label.col-md-4(for="email") Email Address
-							#email_input.col-md-6.input-group
-								span.input-group-addon @
-								input#email.form-control(type="email" placeholder="Email Address")
-						.form-group 
-							label.control-label.col-md-4(for="comment") Question or Comment
-							.col-md-6
-								textarea#comments.form-control(name="comments" rows="6" placeholder="Your question or comment here")
-						.form-group
-							.col-md-6
-								button#send_email_btn.btn.btn-primary.pull-right(type="button" value="Submit") Send
+#emailModal.modal.fade(tabIndex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true")
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type="button" data-dismiss="modal" aria-hidden="true") &times;
+				h4.modal-title Contact Form
+			.modal-body
+				form#emailForm.form-horizontal(action="#" name="commentform" method="post")
+					.form-group
+						label.control-label.col-md-4(for="first_name") First Name
+						.col-md-6
+							input#first_name.form-control(type="text" name="first_name" placeholder="First Name")
+					.form-group
+						label.control-label.col-md-4(for="last_name") Last Name
+						.col-md-6
+							input#last_name.form-control(type="text" placeholder="Last Name")
+					.form-group
+						label.control-label.col-md-4(for="email") Email Address
+						#email_input.col-md-6.input-group
+							span.input-group-addon @
+							input#email.form-control(type="email" placeholder="Email Address")
+					.form-group 
+						label.control-label.col-md-4(for="comment") Question or Comment
+						.col-md-6
+							textarea#comments.form-control(name="comments" rows="6" placeholder="Your question or comment here")
+					.form-group
+						.col-md-6
+							button#send_email_btn.btn.btn-primary.pull-right(type="button" value="Submit") Send

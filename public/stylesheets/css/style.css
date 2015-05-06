@@ -3,7 +3,7 @@ html, body, .fullHeightWidth {
 	height: 100%;
 }
 
-body {
+/*body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
   position: relative;
@@ -11,7 +11,7 @@ body {
 
 a {
   color: #00B7FF;
-}
+}*/
 
 .navbar {
 	background-color: #333333;
@@ -104,3 +104,5 @@ a {
 .text_content {
 	padding: 5px;
 }
+
+

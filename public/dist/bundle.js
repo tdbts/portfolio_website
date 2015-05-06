@@ -7,7 +7,7 @@ $(document).ready(function() {
 		React.render(React.createElement(PortfolioPageContent, null), document.getElementById('page_content_wrapper'));
 });
 
-},{"./PortfolioPageContent":162,"react":157}],2:[function(require,module,exports){
+},{"./PortfolioPageContent":169,"react":157}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -19778,154 +19778,39 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":30}],158:[function(require,module,exports){
-var React = require('react'), 
-	AcknowledgementsNav = require('./AcknowledgementsNav'), 
-	AcknowledgementsScrollable = require('./AcknowledgementsScrollable');
+var React = require('react');
 
-var Acknowledgements = React.createClass({displayName: "Acknowledgements",
-	getDefaultProps: function () {
-		return {
-			menuOptions: [
-				{
-					href: "appreciation_section",
-					text: "Appreciation"
-				}, 
-				{
-					href: "webpage_section", 
-					text: "Webpage"
-				}, 
-				{
-					href: "home_section", 
-					text: "Home"
-				}, 
-				{
-					href: "tweet_cloud_section", 
-					text: "Tweet Cloud"
-				}, 
-				{
-					href: "contact_section", 
-					text: "Contact"
-				}																
-			], 
-
-			scrollableSections: [
-				{
-					id: "appreciation_section", 
-					content: (
-						React.createElement("div", {className: "scrollable_section_content"}, 
-							React.createElement("div", {id: "appreciation_section_title", className: "acknowledgements_section_title"}, 
-								React.createElement("h4", {className: "lead"}, "Appreciation")
-							), 
-							React.createElement("div", {id: "appreciation_section_text", className: "acknowledgements_section_text"}, 
-								React.createElement("p", null, "This webpage and the amount of new things I've learned over the past few months could not have occurred without the help and support of a number of truly awesome people."), 
-								React.createElement("p", null, "I would like to thank my friends and family for the kindness, love and encouragement they have given me throughout these last few months of concentrated study."), 
-								React.createElement("p", null, "Thanks also to the web development and programming community, whose patience and willingness to teach continues to astound me day in and day out."), 
-								React.createElement("br", null), 
-								React.createElement("p", null, React.createElement("em", null, "This site was created with help from the following resources"), ":")
-							)
-						)
-					)
-				}, 
-				{
-					id: "webpage_section", 
-					content: (
-						React.createElement("div", {className: "scrollable_section_content"}, 
-							React.createElement("div", {id: "webpage_section_title", className: "acknowledgements_section_text"}, 
-								React.createElement("h4", {className: "lead"}, "Webpage")
-							), 
-							React.createElement("div", {id: "webpage_section_text", className: "acknowledgements_section_text"}, 
-								React.createElement("p", null, React.createElement("a", {href: "http://www.getbootstrap.com"}, "Bootstrap"), " provided the HTML/CSS/Javascript framework for layout and responsiveness."), 
-								React.createElement("p", null, "The ", React.createElement("a", {href: "http://www.jquery.com"}, "jQuery"), " Javascript library was used everywhere to produce the site's functionality."), 
-								React.createElement("p", null, "The nifty icons used throughout the page were created by ", React.createElement("a", {href: "http://www.fortawesome.github.io/Font-Awesome"}, "Font Awesome"), "."), 
-								React.createElement("p", null, "Version control for building the site was made possible by ", React.createElement("a", {href: "http://www.git-scm.com"}, "Git"), ".")
-							)
-						)
-					)
-				},  
-				{
-					id: "home_section", 
-					content: (
-						React.createElement("div", {className: "scrollable_section_content"}, 
-							React.createElement("div", {id: "home_section_title", className: "acknowledgements_section_title"}, 
-								React.createElement("h4", {className: "lead"}, "Home")
-							), 
-							React.createElement("div", {id: "home_section_text", className: "acknowledgements_section_text"}, 
-								React.createElement("p", null, React.createElement("a", {href: "http://epicwpp.com/cities/urban-basketball-field-in-queens-new-york"}, "Photo of basketball court in Queens, NY"), " courtesy of ", React.createElement("a", {href: "http://www.epicwpp.com/"}, "Epic Wallpapers.")), 
-								React.createElement("p", null, "Code for responsive, full-page background image influenced by ", React.createElement("a", {href: "http://www.ironsummitmedia.github.io/startbootstrap-stylish-portfolio"}, "this Bootstrap template"), " from ", React.createElement("a", {href: "http://www.ironsummitmedia.com"}, "Iron Summit Media Strategies.")), 
-								React.createElement("p", null, "Thanks to Theo at ", React.createElement("a", {href: "http://www.tutsme-webdesign.info"}, "tutsme-webdesign.info"), " for putting together ", React.createElement("a", {href: "http://www.tutsme-webdesign.info/bootstrap-3-contact-modal"}, "this tutorial"), " on creating a Contact Modal using Bootstrap 3.")
-							)						
-						)
-					)
-				}, 
-				{
-					id: "tweet_cloud_section", 
-					content: (
-						React.createElement("div", {className: "scrollable_section_content"}, 
-							React.createElement("div", {id: "tweet_cloud_section_title", className: "acknowledgements_section_title"}, 
-								React.createElement("h4", {className: "lead"}, "Tweet Cloud")
-							), 
-							React.createElement("div", {id: "tweet_cloud_section_text", className: "acknowledgements_section_text"}, 
-								React.createElement("p", null, "Rodian Gorkovenko's ", React.createElement("a", {href: "http://www.jstagsphere.sourceforge.net"}, "jstagsphere project"), " was the primary inspiration for the Tweet Cloud."), 
-								React.createElement("p", null, React.createElement("a", {href: "http://www.mattlag.com/scripting/hexcolorinverter.php"}, "Hexadecimal Color Inverter"), " incorporated into Tweet Cloud code courtesy of ", React.createElement("a", {href: "http://www.mattlag.com"}, "Matt Lagrandeur"), "."), 
-								React.createElement("p", null, "Part of ", React.createElement("a", {href: "http://www.addyosmani.com"}, "Addy Osmani"), "'s one-liner CSS layer debugging code was used to randomly select hexadecimal number for Tweet Cloud background colors.  Also thanks to Javier Marquez for his ", React.createElement("a", {href: "http://www.arquez.com/939/learning-much-javascript-one-line-code"}, "great explanation"), " about its nuances."), 
-								React.createElement("p", null, "Thanks to Matt Harris's ", React.createElement("a", {href: "https://github.com/themattharris/tmhOAuth"}, "Oauth 1.0A library"), " for helping take care of the handshake with ", React.createElement("a", {href: "https://dev.twitter.com"}, "Twitter's API"), "."), 
-								React.createElement("p", null, React.createElement("a", {href: "http://www.140dev.com/twitter-api-programming-blog/twitter-api-ebook-javascript-programming"}, "Javascript Programming for Twitter API 1.1"), " and ", React.createElement("a", {href: "http://www.140dev.com/twitter-api-programming-blog/twitter-api-ebook-single-user-twitter-oauth-programming"}, "Single-user Twitter OAuth Programming"), ", two of ", React.createElement("a", {href: "http://www.140dev.com"}, "Adam Green"), "'s ebooks, were incredibly valuable for figuring out how to use Twitter's API."), 
-								React.createElement("p", null, React.createElement("a", {href: "http://www.stackoverflow.com/user/901048/blazemonger"}, "Blazemonger"), "'s accepted answer to ", React.createElement("a", {href: "http://www.stackoverflow.com/questions/8495687/split-array-into-chunks"}, "this question"), " about splitting arrays on Stack Overflow was incorporated into the Tweet Cloud Javascript."), 
-								React.createElement("p", null, "The accepted answer to ", React.createElement("a", {href: "http://www.stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format"}, "this Stack Overflow question"), " about converting Javascript's date and time object into 12-hour format by ", React.createElement("a", {href: "http://www.stackoverflow.com/users/507770/bbrame"}, "bbrame"), " was added to cloud code.  And thank God for Stack Overflow.")
-							)
-						)
-					)
-				}, 
-				{
-					id: "contact_section", 
-					content: (
-						React.createElement("div", {className: "scrollable_section_content"}, 
-							React.createElement("div", {id: "contact_section_title", className: "acknowledgements_section_title"}, 
-								React.createElement("h4", {className: "lead"}, "Contact")
-							), 
-							React.createElement("div", {id: "contact_section_text", className: "acknowledgements_section_text"}, 
-								React.createElement("p", null, "The tutorial about ", React.createElement("a", {href: "http://www.tympanus.net/codrops/2012/08/08/circle-hover-effects-with-css-transitions"}, "Circle Hover Effects with CSS Transitions"), " by ", React.createElement("a", {href: "http://www.tympanus.net/codrops/author/crnacura"}, "Mary Lou"), " of ", React.createElement("a", {href: "http://www.tympanus.net/codrops"}, "Codrops"), " was really awesome, and provided the influence for the “city circles” on the contact page."), 
-								React.createElement("p", null, "Wallpaper image of rural road courtesy of ", React.createElement("a", {href: "http://http://www.gratisography.com"}, "Gratisography"), "."), 
-								React.createElement("p", null, React.createElement("a", {href: "http://www.img2.goodfon.su/wallpaper/big/e/e5/new-york-nyu-york-amerika.jpg"}, "Image"), " used for “City Circles” courtesy of ", React.createElement("a", {href: "http://www.joyreactor.cc"}, "Joyreactor"), ".")
-							)
-						)
-					)
-				}
-			]
-		};	
-	}, 	
-
+var AcknowledgementsAppreciation = React.createClass({displayName: "AcknowledgementsAppreciation",
 	getStyles: function () {
 		return {
-			acknowledgementsContainer: { 
-				backgroundColor: "#fbfbfb"
+			resourceIntroduction: {
+				marginTop: "35px"
 			}
-		}; 
+		};	
 	}, 
 
 	render: function () {
 		return (
-			React.createElement("div", {id: "acknowledgements_container", style: this.getStyles().acknowledgementsContainer}, 
-				React.createElement("div", {id: "page_header_container", className: "container"}, 
-					React.createElement("h1", {id: "page_header", className: "page-header"}, "Acknowledgements")
+			React.createElement("div", {className: "scrollable_section_content"}, 
+				React.createElement("div", {id: "appreciation_section_title", className: "acknowledgements_section_title"}, 
+					React.createElement("h4", {className: "lead"}, "Appreciation")
 				), 
-				React.createElement("div", {id: "scrollspy_container", className: "container"}, 
-					React.createElement("div", {className: "row"}, 
-						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
-							React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
-						), 
-						React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
-							React.createElement(AcknowledgementsScrollable, {scrollableSections: this.props.scrollableSections})
-						)
+				React.createElement("div", {id: "appreciation_section_text", className: "acknowledgements_section_text"}, 
+					React.createElement("p", null, "This webpage and the amount of new things I've learned over the past few months could not have occurred without the help and support of a number of truly awesome people."), 
+					React.createElement("p", null, "I would like to thank my friends and family for the kindness, love and encouragement they have given me throughout these last few months of concentrated study."), 
+					React.createElement("p", null, "Thanks also to the web development and programming community, whose patience and willingness to teach continues to astound me day in and day out."), 
+					React.createElement("p", {id: "resource_introduction", style: this.getStyles().resourceIntroduction}, 
+						React.createElement("em", null, "This site was created with help from the following resources"), ":"
 					)
-				)	
-			)
+				)
+			)			
 		);
 	}
 });
 
-module.exports = Acknowledgements;
-},{"./AcknowledgementsNav":159,"./AcknowledgementsScrollable":160,"react":157}],159:[function(require,module,exports){
+module.exports = AcknowledgementsAppreciation;
+
+},{"react":157}],159:[function(require,module,exports){
 var React = require('react');
 
 var AcknowledgementsNav = React.createClass({displayName: "AcknowledgementsNav",
@@ -19957,6 +19842,157 @@ module.exports = AcknowledgementsNav;
 
 },{"react":157}],160:[function(require,module,exports){
 var React = require('react'), 
+	AcknowledgementsNav = require('./AcknowledgementsNav'), 
+	AcknowledgementsScrollable = require('./AcknowledgementsScrollable'), 
+	AcknowledgementsAppreciation = require('./AcknowledgementsAppreciation'), 
+	AcknowledgementsWebpage = require('./AcknowledgementsWebpage');
+
+var Acknowledgements = React.createClass({displayName: "Acknowledgements",
+	getDefaultProps: function () {
+		return {
+			menuOptions: [
+				{
+					href: "appreciation_section",
+					text: "Appreciation"
+				}, 
+				{
+					href: "webpage_section", 
+					text: "Webpage"
+				}, 
+				{
+					href: "home_section", 
+					text: "Home"
+				}, 
+				{
+					href: "tweet_cloud_section", 
+					text: "Tweet Cloud"
+				}, 
+				{
+					href: "contact_section", 
+					text: "Contact"
+				}																
+			], 
+
+			scrollableSections: [
+				{
+					id: "appreciation_section", 
+					content: {
+						titleContent: (
+							React.createElement("h4", {className: "lead"}, "Appreciation")
+						), 
+						textContent: (
+							React.createElement("div", null, 
+								React.createElement("p", null, "This webpage and the amount of new things I've learned over the past few months could not have occurred without the help and support of a number of truly awesome people."), 
+								React.createElement("p", null, "I would like to thank my friends and family for the kindness, love and encouragement they have given me throughout these last few months of concentrated study."), 
+								React.createElement("p", null, "Thanks also to the web development and programming community, whose patience and willingness to teach continues to astound me day in and day out."), 
+								React.createElement("p", {id: "resource_introduction"}, 
+									React.createElement("em", null, "This site was created with help from the following resources"), ":"
+								)
+							)
+						)
+					}
+				}, 
+				{
+					id: "webpage_section", 
+					content: {
+						titleContent: (
+							React.createElement("h4", {className: "lead"}, "Webpage")
+						), 
+						textContent: (
+							React.createElement("div", null, 
+								React.createElement("p", null, React.createElement("a", {href: "http://www.getbootstrap.com"}, "Bootstrap"), " provided the HTML/CSS/Javascript framework for layout and responsiveness."), 
+								React.createElement("p", null, "The ", React.createElement("a", {href: "http://www.jquery.com"}, "jQuery"), " Javascript library was used everywhere to produce the site's functionality."), 
+								React.createElement("p", null, "The nifty icons used throughout the page were created by ", React.createElement("a", {href: "http://www.fortawesome.github.io/Font-Awesome"}, "Font Awesome"), "."), 
+								React.createElement("p", null, "Version control for building the site was made possible by ", React.createElement("a", {href: "http://www.git-scm.com"}, "Git"), ".")							
+							)
+						)
+					}
+				},  
+				{
+					id: "home_section", 
+					content: {
+						titleContent: (
+							React.createElement("h4", {className: "lead"}, "Home")
+						), 
+						textContent: (
+							React.createElement("div", null, 
+								React.createElement("p", null, React.createElement("a", {href: "http://epicwpp.com/cities/urban-basketball-field-in-queens-new-york"}, "Photo of basketball court in Queens, NY"), " courtesy of ", React.createElement("a", {href: "http://www.epicwpp.com/"}, "Epic Wallpapers.")), 
+								React.createElement("p", null, "Code for responsive, full-page background image influenced by ", React.createElement("a", {href: "http://www.ironsummitmedia.github.io/startbootstrap-stylish-portfolio"}, "this Bootstrap template"), " from ", React.createElement("a", {href: "http://www.ironsummitmedia.com"}, "Iron Summit Media Strategies.")), 
+								React.createElement("p", null, "Thanks to Theo at ", React.createElement("a", {href: "http://www.tutsme-webdesign.info"}, "tutsme-webdesign.info"), " for putting together ", React.createElement("a", {href: "http://www.tutsme-webdesign.info/bootstrap-3-contact-modal"}, "this tutorial"), " on creating a Contact Modal using Bootstrap 3.")
+							)
+						)
+					}
+				}, 
+				{
+					id: "tweet_cloud_section", 
+					content: {
+						titleContent: (
+							React.createElement("h4", {className: "lead"}, "Tweet Cloud")
+						), 
+						textContent: (
+							React.createElement("div", null, 
+								React.createElement("p", null, "Rodian Gorkovenko's ", React.createElement("a", {href: "http://www.jstagsphere.sourceforge.net"}, "jstagsphere project"), " was the primary inspiration for the Tweet Cloud."), 
+								React.createElement("p", null, React.createElement("a", {href: "http://www.mattlag.com/scripting/hexcolorinverter.php"}, "Hexadecimal Color Inverter"), " incorporated into Tweet Cloud code courtesy of ", React.createElement("a", {href: "http://www.mattlag.com"}, "Matt Lagrandeur"), "."), 
+								React.createElement("p", null, "Part of ", React.createElement("a", {href: "http://www.addyosmani.com"}, "Addy Osmani"), "'s one-liner CSS layer debugging code was used to randomly select hexadecimal number for Tweet Cloud background colors.  Also thanks to Javier Marquez for his ", React.createElement("a", {href: "http://www.arquez.com/939/learning-much-javascript-one-line-code"}, "great explanation"), " about its nuances."), 
+								React.createElement("p", null, "Thanks to Matt Harris's ", React.createElement("a", {href: "https://github.com/themattharris/tmhOAuth"}, "Oauth 1.0A library"), " for helping take care of the handshake with ", React.createElement("a", {href: "https://dev.twitter.com"}, "Twitter's API"), "."), 
+								React.createElement("p", null, React.createElement("a", {href: "http://www.140dev.com/twitter-api-programming-blog/twitter-api-ebook-javascript-programming"}, "Javascript Programming for Twitter API 1.1"), " and ", React.createElement("a", {href: "http://www.140dev.com/twitter-api-programming-blog/twitter-api-ebook-single-user-twitter-oauth-programming"}, "Single-user Twitter OAuth Programming"), ", two of ", React.createElement("a", {href: "http://www.140dev.com"}, "Adam Green"), "'s ebooks, were incredibly valuable for figuring out how to use Twitter's API."), 
+								React.createElement("p", null, React.createElement("a", {href: "http://www.stackoverflow.com/user/901048/blazemonger"}, "Blazemonger"), "'s accepted answer to ", React.createElement("a", {href: "http://www.stackoverflow.com/questions/8495687/split-array-into-chunks"}, "this question"), " about splitting arrays on Stack Overflow was incorporated into the Tweet Cloud Javascript."), 
+								React.createElement("p", null, "The accepted answer to ", React.createElement("a", {href: "http://www.stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format"}, "this Stack Overflow question"), " about converting Javascript's date and time object into 12-hour format by ", React.createElement("a", {href: "http://www.stackoverflow.com/users/507770/bbrame"}, "bbrame"), " was added to cloud code.  And thank God for Stack Overflow.")
+							)
+						)
+					}
+				}, 
+				{
+					id: "contact_section", 
+					content: {
+						titleContent: (
+							React.createElement("h4", {className: "lead"}, "Contact")
+						), 
+						textContent: (
+							React.createElement("div", null, 
+								React.createElement("p", null, "The tutorial about ", React.createElement("a", {href: "http://www.tympanus.net/codrops/2012/08/08/circle-hover-effects-with-css-transitions"}, "Circle Hover Effects with CSS Transitions"), " by ", React.createElement("a", {href: "http://www.tympanus.net/codrops/author/crnacura"}, "Mary Lou"), " of ", React.createElement("a", {href: "http://www.tympanus.net/codrops"}, "Codrops"), " was really awesome, and provided the influence for the “city circles” on the contact page."), 
+								React.createElement("p", null, "Wallpaper image of rural road courtesy of ", React.createElement("a", {href: "http://http://www.gratisography.com"}, "Gratisography"), "."), 
+								React.createElement("p", null, React.createElement("a", {href: "http://www.img2.goodfon.su/wallpaper/big/e/e5/new-york-nyu-york-amerika.jpg"}, "Image"), " used for “City Circles” courtesy of ", React.createElement("a", {href: "http://www.joyreactor.cc"}, "Joyreactor"), ".")
+							)
+						)
+					}
+				}
+			]
+		};	
+	}, 	
+
+	getStyles: function () {
+		return {
+			acknowledgementsContainer: { 
+				backgroundColor: "#fbfbfb"
+			}, 			
+		}; 
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "acknowledgements_container", style: this.getStyles().acknowledgementsContainer}, 
+				React.createElement("div", {id: "page_header_container", className: "container"}, 
+					React.createElement("h1", {id: "page_header", className: "page-header"}, "Acknowledgements")
+				), 
+				React.createElement("div", {id: "scrollspy_container", className: "container"}, 
+					React.createElement("div", {className: "row"}, 
+						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
+							React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
+						), 
+						React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
+							React.createElement(AcknowledgementsScrollable, {scrollableSections: this.props.scrollableSections})
+						)
+					)
+				)	
+			)
+		);
+	}
+});
+
+module.exports = Acknowledgements;
+},{"./AcknowledgementsAppreciation":158,"./AcknowledgementsNav":159,"./AcknowledgementsScrollable":161,"./AcknowledgementsWebpage":162,"react":157}],161:[function(require,module,exports){
+var React = require('react'), 
 	ScrollableSection = require('./ScrollableSection');
 
 var AcknowledgementsScrollable = React.createClass({displayName: "AcknowledgementsScrollable",
@@ -19979,12 +20015,366 @@ var AcknowledgementsScrollable = React.createClass({displayName: "Acknowledgemen
 
 module.exports = AcknowledgementsScrollable;
 
-},{"./ScrollableSection":163,"react":157}],161:[function(require,module,exports){
+},{"./ScrollableSection":170,"react":157}],162:[function(require,module,exports){
+var React = require('react');
 
-},{}],162:[function(require,module,exports){
+var AcknowledgementsWebpage = React.createClass({displayName: "AcknowledgementsWebpage",
+	render: function () {
+		return (
+			React.createElement("div", {className: "scrollable_section_content"}, 
+				React.createElement("div", {id: "webpage_section_title", className: "acknowledgements_section_text"}, 
+					React.createElement("h4", {className: "lead"}, "Webpage")
+				), 
+				React.createElement("div", {id: "webpage_section_text", className: "acknowledgements_section_text"}, 
+					React.createElement("p", null, React.createElement("a", {href: "http://www.getbootstrap.com"}, "Bootstrap"), " provided the HTML/CSS/Javascript framework for layout and responsiveness."), 
+					React.createElement("p", null, "The ", React.createElement("a", {href: "http://www.jquery.com"}, "jQuery"), " Javascript library was used everywhere to produce the site's functionality."), 
+					React.createElement("p", null, "The nifty icons used throughout the page were created by ", React.createElement("a", {href: "http://www.fortawesome.github.io/Font-Awesome"}, "Font Awesome"), "."), 
+					React.createElement("p", null, "Version control for building the site was made possible by ", React.createElement("a", {href: "http://www.git-scm.com"}, "Git"), ".")
+				)
+			)			
+		);
+	}
+});
+
+module.exports = AcknowledgementsWebpage;
+
+},{"react":157}],163:[function(require,module,exports){
+var React = require('react');
+
+var CareerDescription = React.createClass({displayName: "CareerDescription",
+	
+	getStyles: function () {
+		return {
+			careerDescriptionContainer: {
+				marginBottom: "20px"
+			}, 
+
+			careerDescription: {
+				fontSize: "1.75em",
+				letterSpacing: "3px",  
+				color: "#e1e1e1", 
+				textShadow: "8px 7px 10px #2b2b2b", 
+				marginTop: "10px"
+			},
+
+			unbreakable: {
+				whiteSpace: "nowrap"
+			}			
+		};
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 
+				React.createElement("h1", {id: "careerDescription", className: "lead", style: this.getStyles().careerDescription}, 
+					React.createElement("span", {id: "descriptionLeft", className: "offPageLeft", ref: "descriptionLeft", style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {id: "descriptionRight", className: "offPageRight", ref: "descriptionRight", style: this.getStyles().unbreakable}, "Data Makeover Artist")
+				)
+			)			
+		);
+	}
+});
+
+module.exports = CareerDescription;
+
+},{"react":157}],164:[function(require,module,exports){
+var React = require('react');
+
+var ContactCircle = React.createClass({displayName: "ContactCircle",
+	getInitialState: function () {
+		return {
+			itemClass: "", 
+			infoClass: "", 
+			infoFrontClass: "", 
+			infoBackClass: ""
+		};
+	}, 
+
+	componentDidMount: function () {
+		this.setState({
+			itemClass: "ch-item", 
+			infoClass: "ch-info", 
+			infoFrontClass: "ch-info-front contact_circle", 
+			infoBackClass: "ch-info-back"			
+		})
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {className: this.state.itemClass}, 
+				React.createElement("div", {className: this.state.infoClass}, 
+					React.createElement("div", {className: this.state.infoFrontClass, id: "ch-img-" + this.props.idNum}), 
+					React.createElement("div", {className: this.state.infoBackClass}, 
+						this.props.content
+					)
+				)
+			)
+		);
+	}
+});
+
+module.exports = ContactCircle;
+
+},{"react":157}],165:[function(require,module,exports){
+var React = require('react'), 
+	ContactCircle = require('./ContactCircle'), 
+	classNames = require('classnames');
+
+var ContactPage = React.createClass({displayName: "ContactPage",
+	getDefaultProps: function () {
+		return {
+			circleBackContent: [
+				{
+					idNum: "1", 
+					content: (
+						React.createElement("div", null, 
+							React.createElement("a", {href: "#emailModal", id: "openEmailModal", "data-toggle": "modal", "data-target": "#myModal"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_1", "data-toggle": "tooltip", "data-placement": "left", title: "Email"}, 
+								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
+								React.createElement("span", {className: "fa fa-envelope fa-stack-1x fa-inverse"})
+							), React.createElement("br", null)), 
+							React.createElement("h3", null, "Email"), 
+							React.createElement("p", null, "VinnySanchez87@gmail.com")
+						)
+					)
+				}, 
+				{
+					idNum: "2",  
+					content: (
+						React.createElement("div", null, 
+							React.createElement("a", {href: "#", id: "contactLink-1"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_2", "data-toggle": "tooltip", "data-placement": "left", title: "GitHub"}, 
+								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
+								React.createElement("span", {className: "fa fa-github fa-stack-1x fa-inverse"})
+							), React.createElement("br", null)), 
+							React.createElement("h3", null, "Github"), 
+							React.createElement("p", null, "tdbts")
+						)
+					)
+				}, 
+				{
+					idNum: "3", 
+					content: (
+						React.createElement("div", null, 
+							React.createElement("a", {href: "#", id: "contactLink-2"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_3", "data-toggle": "tooltip", "data-placement": "left", title: "Linked.in"}, 
+								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
+								React.createElement("span", {className: "fa fa-linkedin-square fa-stack-1x fa-inverse"})
+							), React.createElement("br", null)), 
+							React.createElement("h3", null, "Linked.in"), 
+							React.createElement("p", null, "Vincent R. Sanchez")
+						)
+					)
+				}, 
+				{
+					idNum: "4", 
+					content: (
+						React.createElement("div", null, 
+							React.createElement("a", {href: "#", id: "contactLink-3"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_4", "data-toggle": "tooltip", "data-placement": "left", title: "Twitter"}, 
+								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
+								React.createElement("span", {className: "fa fa-twitter fa-stack-1x fa-inverse"})
+							), React.createElement("br", null)), 
+							React.createElement("h3", null, "Twitter"), 
+							React.createElement("p", null, "VRSanchez8717")
+						)
+					)
+				}, 
+				{
+					idNum: "5", 
+					content: (
+						React.createElement("div", null, 
+							React.createElement("a", {href: "#", id: "contactLink-4"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_5", "data-toggle": "tooltip", "data-placement": "left", title: "Facebook"}, 
+								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
+								React.createElement("span", {className: "fa fa-facebook-square fa-stack-1x fa-inverse"})
+							), React.createElement("br", null)), 
+							React.createElement("h3", null, "Facebook"), 
+							React.createElement("p", null, "VinnyFromTheQ")
+						)
+					)
+				}			
+			]
+		};
+	}, 
+
+	getInitialState: function () {
+		return {
+			gridClass: ""
+		};
+	}, 
+
+	createContactCircles: function () {
+		var circles = this.props.circleBackContent.map(function (circle) {
+			return (
+				React.createElement("li", {key: circle.idNum, className: "circle_container"}, 
+					React.createElement(ContactCircle, {idNum: circle.idNum, content: circle.content})
+				)
+			);
+		});
+
+		return circles;	
+	}, 
+
+	componentDidMount: function () {
+		this.setState({gridClass: "ch-grid"});
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "contact_content_container"}, 
+				React.createElement("div", {className: "background", id: "wallpaper"}, 
+					React.createElement("ul", {className: this.state.gridClass}, 
+						this.createContactCircles()
+					)
+				)
+			)
+		);
+	}
+});
+
+module.exports = ContactPage;
+
+},{"./ContactCircle":164,"classnames":173,"react":157}],166:[function(require,module,exports){
+var React = require('react'), 
+	LandingPageElements = require('./LandingPageElements');
+
+var LandingPage = React.createClass({displayName: "LandingPage",
+
+	getStyles: function () {
+		return {
+			top: {
+				background: "url('/images/NY_basketball_ct_OPTIMIZED.jpg') no-repeat center center scroll"
+			}
+		};
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("header", {id: "top", className: "header fullHeightWidth", style: this.getStyles().top}, 
+				React.createElement(LandingPageElements, null)
+			)
+		);
+	}
+});
+
+module.exports = LandingPage;
+
+},{"./LandingPageElements":167,"react":157}],167:[function(require,module,exports){
+var React = require('react'), 
+	Name = require('./Name'), 
+	CareerDescription = require('./CareerDescription'), 
+	WelcomeButton = require('./WelcomeButton');
+
+var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
+	getInitialState: function () {
+		return {
+			windowWidth: window.innerWidth, 
+			windowHeight: window.innerHeight, 
+			headerClassString: "container animated bounceInDown"
+		};
+	}, 
+
+	getStyles: function () {
+		return {
+			landingPageElementsContainer: {
+				textAlign: "center", 
+				position: "relative", 
+				height: "200px", 
+				top: this.state.windowHeight < 500 ? "10%" : 
+					this.state.windowWidth < 621 ? "15%" : "30%"
+			}
+		};
+	}, 
+
+	handleResize: function (e) {
+		this.setState({windowWidth: window.innerWidth});
+	}, 
+
+	getRefDOMNode: function (ref) {
+		
+		return React.findDOMNode(this.refs[ref]);
+	}, 	
+
+	animateCareerDescription: function () {
+		var self = this,
+			descriptionLeft = $(this.getRefDOMNode('careerDescription')).find('#descriptionLeft'), 
+			descriptionRight = $(this.getRefDOMNode('careerDescription')).find('#descriptionRight');
+
+		$(descriptionRight).css({position: "relative"});
+		
+		$(React.findDOMNode(this)).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+			$(descriptionLeft).animate({left: "0px"});
+			$(descriptionRight).animate({right: "0px"});
+		});		
+	}, 
+
+	startAnimation: function () {
+		// Prefixes cannot be added to inline CSS
+		this.setState({headerClassString: this.state.headerClassString + " customizedAnimation"});
+	
+		this.animateCareerDescription();
+	}, 
+
+	componentDidMount: function () {
+		window.addEventListener('resize', this.handleResize);
+
+		this.startAnimation();		
+	}, 
+
+	componentWillUnmount: function () {
+		window.removeEventListener('resize', this.handleResize);
+	}, 
+
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "landing_page_elements_container", className: this.state.headerClassString, style: this.getStyles().landingPageElementsContainer}, 	
+				React.createElement("div", {className: "row"}, 
+					React.createElement("div", {className: "col-md-8 col-md-offset-2"}, 
+						React.createElement(Name, null), 
+						React.createElement(CareerDescription, {ref: "careerDescription"}), 
+						React.createElement(WelcomeButton, null)
+					)
+				)
+			)
+		);
+	}
+});
+
+module.exports = LandingPageHeader;
+
+},{"./CareerDescription":163,"./Name":168,"./WelcomeButton":172,"react":157}],168:[function(require,module,exports){
+var React = require('react');
+
+var Name = React.createClass({displayName: "Name",
+	getStyles: function () {
+		return {
+			nameContainer: {
+				display: "inline-block"
+			},
+
+			myName: {
+				fontFamily: "'Impact', 'Palatino Linotype', 'Book Antiqua', Palatino, serif", 
+				letterSpacing: "5px", 
+				fontSize: "5.5em", 
+				textShadow: "1px 1px 5px #797979", 
+				borderBottom: "1px solid black", 
+				marginBottom: "15px"
+			},			
+		};
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "name_container", style: this.getStyles().nameContainer}, 
+				React.createElement("h1", {id: "myName", style: this.getStyles().myName}, "Vinny Sanchez")
+			)			
+		);
+	}
+});
+
+module.exports = Name;
+
+},{"react":157}],169:[function(require,module,exports){
 var React = require('react'), 
 	LandingPage = require('./LandingPage'), 
-	Acknowledgements = require('./Acknowledgements'); 
+	AcknowledgementsPage = require('./AcknowledgementsPage'), 
+	ContactPage = require('./ContactPage');
 
 var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent",
 	getInitialState: function () {
@@ -20003,7 +20393,11 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 			}, 
 			acknowledgements: {
 				path: '/about/acknowledgements/', 
-				component: React.createElement(Acknowledgements, null)
+				component: React.createElement(AcknowledgementsPage, null)
+			}, 
+			contact: {
+				path: '/contact/', 
+				component: React.createElement(ContactPage, null)
 			}
 		};
 
@@ -20027,14 +20421,15 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 
 module.exports = PortfolioPageContent;
 
-},{"./Acknowledgements":158,"./LandingPage":161,"react":157}],163:[function(require,module,exports){
-var React = require('react');
+},{"./AcknowledgementsPage":160,"./ContactPage":165,"./LandingPage":166,"react":157}],170:[function(require,module,exports){
+var React = require('react'), 
+	ScrollableSectionContent = require('./ScrollableSectionContent');
 
 var ScrollableSection = React.createClass({displayName: "ScrollableSection",
 	render: function () {
 		return (
 			React.createElement("section", {id: this.props.id, className: "text_content"}, 
-				this.props.content
+				React.createElement(ScrollableSectionContent, {id: this.props.id, titleContent: this.props.content.titleContent, textContent: this.props.content.textContent})
 			)
 		);
 	}
@@ -20042,4 +20437,154 @@ var ScrollableSection = React.createClass({displayName: "ScrollableSection",
 
 module.exports = ScrollableSection;
 
-},{"react":157}]},{},[1]);
+},{"./ScrollableSectionContent":171,"react":157}],171:[function(require,module,exports){
+var React = require('react');
+
+var ScrollableSectionContent = React.createClass({displayName: "ScrollableSectionContent",
+	render: function () {
+		return (
+			React.createElement("div", {className: "scrollable_section_content"}, 
+				React.createElement("div", {id: this.props.id + "_title", className: "acknowledgements_section_title"}, 
+					this.props.titleContent
+				), 
+				React.createElement("div", {id: this.props.id + "_text", className: "acknowledgements_section_text"}, 
+					this.props.textContent
+				)
+			)
+		);
+	}
+});
+
+module.exports = ScrollableSectionContent;
+
+},{"react":157}],172:[function(require,module,exports){
+var React = require('react');
+
+var WelcomeButton = React.createClass({displayName: "WelcomeButton",
+	getInitialState: function () {
+		return {
+			welcomeButtonClassString: "btn btn-lg", 
+			welcomeButtonLinkClassString: ""
+		};
+	}, 
+
+	getStyles: function () {
+		return {
+			welcomeButtonContainer: { 
+				padding: "10px"
+			}, 
+
+			welcomeButton: {
+				opacity: "0.8", 
+				border: "1px solid #000"
+			}, 
+
+			welcomeButtonLink: {
+				textDecoration: "none"
+			}
+		};	
+	},
+
+	getRefDOMNode: function (ref) {
+		
+		return React.findDOMNode(this.refs[ref]);
+	}, 
+
+	changeLinkTextColorTo: function (colorHex) {
+
+		$(this.getRefDOMNode('welcomeButton')).find('a').css({color: colorHex});
+	}, 
+
+
+	addButtonTextTransition: function () {
+		var self = this, 
+			welcomeButtonNode = this.getRefDOMNode('welcomeButton');
+
+		$(welcomeButtonNode).hover(
+			function () {
+				self.changeLinkTextColorTo("#333");
+			}, 
+			function () {
+				self.changeLinkTextColorTo("#e1e1e1");
+			}
+		);	
+	}, 
+
+	addTransitionsToButton: function () {
+		this.setState({welcomeButtonClassString: this.state.welcomeButtonClassString + ' buttonHoverFade'});
+		this.setState({welcomeButtonLinkClassString: this.state.welcomeButtonLinkClassString + ' buttonTextFade'});
+		this.addButtonTextTransition();		
+	}, 
+
+
+	componentDidMount: function () {
+		this.addTransitionsToButton();
+	},  
+
+	componentWillUnmount: function () {
+		$(this.getRefDOMNode('welcomeButton')).unbind('mouseenter mouseleave');
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "welcome_button_container", style: this.getStyles().welcomeButtonContainer}, 
+				React.createElement("button", {id: "welcomeButton", className: this.state.welcomeButtonClassString, ref: "welcomeButton", style: this.getStyles().welcomeButton}, 
+					React.createElement("a", {id: "welcomeButtonLink", className: this.state.welcomeButtonLinkClassString, ref: "welcomeButtonLink", href: "#", style: this.getStyles().welcomeButtonLink}, "More Info")
+				)
+			)			
+		);
+	}
+});
+
+module.exports = WelcomeButton;
+
+},{"react":157}],173:[function(require,module,exports){
+/*!
+  Copyright (c) 2015 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+
+function classNames () {
+	'use strict';
+
+	var classes = '';
+
+	for (var i = 0; i < arguments.length; i++) {
+		var arg = arguments[i];
+		if (!arg) continue;
+
+		var argType = typeof arg;
+
+		if ('string' === argType || 'number' === argType) {
+			classes += ' ' + arg;
+
+		} else if (Array.isArray(arg)) {
+			classes += ' ' + classNames.apply(null, arg);
+
+		} else if ('object' === argType) {
+			for (var key in arg) {
+				if (arg.hasOwnProperty(key) && arg[key]) {
+					classes += ' ' + key;
+				}
+			}
+		}
+	}
+
+	return classes.substr(1);
+}
+
+// safely export classNames for node / browserify
+if (typeof module !== 'undefined' && module.exports) {
+	module.exports = classNames;
+}
+
+/* global define */
+// safely export classNames for RequireJS
+if (typeof define !== 'undefined' && define.amd) {
+	define('classnames', [], function() {
+		return classNames;
+	});
+}
+
+},{}]},{},[1]);
