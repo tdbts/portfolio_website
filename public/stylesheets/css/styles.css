@@ -6548,8 +6548,16 @@ button.close {
   }
 }
 @media (min-width: 992px) {
+  body {
+    overflow-y: hidden;
+  }
+}
+#acknowledgements_container {
+  position: absolute;
+}
+@media (min-width: 992px) {
   #acknowledgements_container {
-    padding: 0px 50px;
+    padding: 0px 250px;
   }
 }
 @media (max-width: 992px) {

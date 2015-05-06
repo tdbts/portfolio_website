@@ -56,7 +56,6 @@ gulp.task('jshint', function () {
 gulp.task('watch', function () {
 	var jsHintSourceFiles = [
 		'src/*.js', 
-		// 'public/javascripts/*.js', 
 		'routes/*.js', 
 		'gulpfile.js', 
 	];
@@ -74,12 +73,14 @@ gulp.task('watch', function () {
 gulp.task('server-restart', function () {
 	nodemon({
 		script: './bin/www', 
-		ext: 'js jsx html json', 
+		ext: 'js jsx html json',    
 		env: {
 			'NODE_ENV': 'development'
 		}
 	})
-	.on('restart', function () {
+	.on('restart', function (event) {
+		console.log(event);
+
 		var date = new Date(), 
 			hour = date.getHours(), 
 			minutes = date.getMinutes(), 
