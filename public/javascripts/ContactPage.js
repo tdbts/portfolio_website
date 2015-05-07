@@ -9,7 +9,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "1", 
 					content: (
-						React.createElement("div", null, 
+						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#emailModal", id: "openEmailModal", "data-toggle": "modal", "data-target": "#myModal"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_1", "data-toggle": "tooltip", "data-placement": "left", title: "Email"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-envelope fa-stack-1x fa-inverse"})
@@ -22,7 +22,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "2",  
 					content: (
-						React.createElement("div", null, 
+						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#", id: "contactLink-1"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_2", "data-toggle": "tooltip", "data-placement": "left", title: "GitHub"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-github fa-stack-1x fa-inverse"})
@@ -35,7 +35,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "3", 
 					content: (
-						React.createElement("div", null, 
+						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#", id: "contactLink-2"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_3", "data-toggle": "tooltip", "data-placement": "left", title: "Linked.in"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-linkedin-square fa-stack-1x fa-inverse"})
@@ -48,7 +48,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "4", 
 					content: (
-						React.createElement("div", null, 
+						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#", id: "contactLink-3"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_4", "data-toggle": "tooltip", "data-placement": "left", title: "Twitter"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-twitter fa-stack-1x fa-inverse"})
@@ -61,7 +61,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "5", 
 					content: (
-						React.createElement("div", null, 
+						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#", id: "contactLink-4"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_5", "data-toggle": "tooltip", "data-placement": "left", title: "Facebook"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-facebook-square fa-stack-1x fa-inverse"})

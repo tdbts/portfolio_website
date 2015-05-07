@@ -12,10 +12,9 @@ var ContactCircle = React.createClass({
 
 	componentDidMount: function () {
 		this.setState({
-			itemClass: "ch-item", 
-			infoClass: "ch-info", 
-			infoFrontClass: "ch-info-front contact_circle", 
-			infoBackClass: "ch-info-back"			
+			itemClass: "ch-item fullHeightWidth", 
+			infoClass: "ch-info fullHeightWidth", 
+			infoFrontClass: "ch-info-front contact_circle fullHeightWidth"			
 		});
 	}, 
 
@@ -24,9 +23,7 @@ var ContactCircle = React.createClass({
 			<div className={this.state.itemClass}>
 				<div className={this.state.infoClass}>
 					<div className={this.state.infoFrontClass} id={"ch-img-" + this.props.idNum}></div>
-					<div className={this.state.infoBackClass}>
-						{this.props.content}
-					</div>
+					{this.props.content}
 				</div>
 			</div>
 		);

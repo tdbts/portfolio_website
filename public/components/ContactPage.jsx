@@ -9,7 +9,7 @@ var ContactPage = React.createClass({
 				{
 					idNum: "1", 
 					content: (
-						<div>
+						<div className="ch-info-back fullHeightWidth">
 							<a href="#emailModal" id="openEmailModal" data-toggle="modal" data-target="#myModal"><span className="fa-stack fa-3x needs_tooltip contact_icon" id="stack_1" data-toggle="tooltip" data-placement="left" title="Email">
 								<span className="fa fa-circle fa-stack-2x"></span>
 								<span className="fa fa-envelope fa-stack-1x fa-inverse"></span>
@@ -22,7 +22,7 @@ var ContactPage = React.createClass({
 				{
 					idNum: "2",  
 					content: (
-						<div>
+						<div className="ch-info-back fullHeightWidth">
 							<a href="#" id="contactLink-1"><span className="fa-stack fa-3x needs_tooltip contact_icon" id="stack_2" data-toggle="tooltip" data-placement="left" title="GitHub">
 								<span className="fa fa-circle fa-stack-2x"></span>
 								<span className="fa fa-github fa-stack-1x fa-inverse"></span>
@@ -35,7 +35,7 @@ var ContactPage = React.createClass({
 				{
 					idNum: "3", 
 					content: (
-						<div>
+						<div className="ch-info-back fullHeightWidth">
 							<a href="#" id="contactLink-2"><span className="fa-stack fa-3x needs_tooltip contact_icon" id="stack_3" data-toggle="tooltip" data-placement="left" title="Linked.in">
 								<span className="fa fa-circle fa-stack-2x"></span>
 								<span className="fa fa-linkedin-square fa-stack-1x fa-inverse"></span>
@@ -48,7 +48,7 @@ var ContactPage = React.createClass({
 				{
 					idNum: "4", 
 					content: (
-						<div>
+						<div className="ch-info-back fullHeightWidth">
 							<a href="#" id="contactLink-3"><span className="fa-stack fa-3x needs_tooltip contact_icon" id="stack_4" data-toggle="tooltip" data-placement="left" title="Twitter">
 								<span className="fa fa-circle fa-stack-2x"></span>
 								<span className="fa fa-twitter fa-stack-1x fa-inverse"></span>
@@ -61,7 +61,7 @@ var ContactPage = React.createClass({
 				{
 					idNum: "5", 
 					content: (
-						<div>
+						<div className="ch-info-back fullHeightWidth">
 							<a href="#" id="contactLink-4"><span className="fa-stack fa-3x needs_tooltip contact_icon" id="stack_5" data-toggle="tooltip" data-placement="left" title="Facebook">
 								<span className="fa fa-circle fa-stack-2x"></span>
 								<span className="fa fa-facebook-square fa-stack-1x fa-inverse"></span>
