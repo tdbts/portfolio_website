@@ -99,8 +99,8 @@ var ContactPage = React.createClass({
 
 	render: function () {
 		return (
-			<div id="contact_content_container">
-				<div className="background" id="wallpaper">
+			<div id="contact_content_container" className="fullHeightWidth">
+				<div className="background fullHeightWidth" id="wallpaper">
 					<ul className={this.state.gridClass}>
 						{this.createContactCircles()}
 					</ul>

@@ -20095,7 +20095,7 @@ var ContactCircle = React.createClass({displayName: "ContactCircle",
 			infoClass: "ch-info", 
 			infoFrontClass: "ch-info-front contact_circle", 
 			infoBackClass: "ch-info-back"			
-		})
+		});
 	}, 
 
 	render: function () {
@@ -20216,8 +20216,8 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 
 	render: function () {
 		return (
-			React.createElement("div", {id: "contact_content_container"}, 
-				React.createElement("div", {className: "background", id: "wallpaper"}, 
+			React.createElement("div", {id: "contact_content_container", className: "fullHeightWidth"}, 
+				React.createElement("div", {className: "background fullHeightWidth", id: "wallpaper"}, 
 					React.createElement("ul", {className: this.state.gridClass}, 
 						this.createContactCircles()
 					)

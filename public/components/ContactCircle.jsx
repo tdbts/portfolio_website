@@ -16,7 +16,7 @@ var ContactCircle = React.createClass({
 			infoClass: "ch-info", 
 			infoFrontClass: "ch-info-front contact_circle", 
 			infoBackClass: "ch-info-back"			
-		})
+		});
 	}, 
 
 	render: function () {
