@@ -76,8 +76,13 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 	}, 
 
 	getInitialState: function () {
+		var html = document.getElementsByTagName('html');
+
 		return {
-			gridClass: ""
+			gridClass: "", 
+			wallpaperHeight: {
+				height: null
+			}
 		};
 	}, 
 
@@ -93,15 +98,27 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 		return circles;	
 	}, 
 
+	updateWallPaperDimensions: function () {
+		this.setState({wallpaperHeight: {height: (window.innerHeight + window.scrollY).toString() + "px"}});
+	}, 
+
 	componentDidMount: function () {
 		this.setState({gridClass: "ch-grid"});
+
+		window.addEventListener('resize', this.updateWallPaperDimensions);
+		window.addEventListener('scroll', this.updateWallPaperDimensions);
 	}, 
+
+	componentWillUnmount: function () {
+		window.removeEventListener('resize', this.updateWallPaperDimensions);
+		window.removeEventListener('scroll', this.updateWallPaperDimensions);
+	},  
 
 	render: function () {
 		return (
 			React.createElement("div", {id: "contact_content_container", className: "fullHeightWidth"}, 
-				React.createElement("div", {className: "background fullHeightWidth", id: "wallpaper"}, 
-					React.createElement("ul", {className: this.state.gridClass}, 
+				React.createElement("div", {className: "background fullHeightWidth", id: "wallpaper", style: this.state.wallpaperHeight}, 
+					React.createElement("ul", {id: "contact_circle_unordered_list", className: this.state.gridClass}, 
 						this.createContactCircles()
 					)
 				)
