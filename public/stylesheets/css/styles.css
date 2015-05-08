@@ -6560,6 +6560,21 @@ body {
 a {
   color: #00B7FF;
 }
+.inheritSize {
+  height: inherit;
+  width: inherit;
+}
+.verticalAlign {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#page_wrapper #page_content_wrapper #page_component_anchor {
+  height: inherit;
+  width: inherit;
+}
 #webpage_navbar {
   margin-bottom: 0px;
 }
@@ -6687,10 +6702,21 @@ a {
 #wallpaper {
   background: url('../../images/road_almost_bw_OPTIMIZED.jpg') no-repeat center center scroll;
   background-size: cover;
+  height: inherit;
+  width: inherit;
 }
 @media (max-width: 480px) {
   #wallpaper {
     max-height: 1320px;
+  }
+}
+@media (min-width: 992px) {
+  #contact_circle_unordered_list {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
 }
 .contact_icon {
@@ -6703,6 +6729,10 @@ a {
   transform: rotateY(360deg);
 }
 /* CSS INFLUENCED BY MARY LOU (TYMPANUS.NET) */
+.ch-info .ch-info-front .ch-info-back {
+  height: inherit;
+  width: inherit;
+}
 .ch-grid {
   margin: 0;
   padding: 0;

@@ -2,8 +2,15 @@
 #wallpaper {
 	background: url('../../images/road_almost_bw_OPTIMIZED.jpg') no-repeat center center scroll;
 	background-size: cover;
+	.inheritSize;
 	@media(max-width: @screen-xs) {
 		max-height: 1320px;
+	}
+}
+
+#contact_circle_unordered_list {
+	@media(min-width: @screen-md) {
+		.verticalAlign;
 	}
 }
 
@@ -19,6 +26,10 @@
 }
 
 /* CSS INFLUENCED BY MARY LOU (TYMPANUS.NET) */
+.ch-info .ch-info-front .ch-info-back {
+	.inheritSize;
+}
+
 .ch-grid {
 	margin: 0;
 	padding: 0;

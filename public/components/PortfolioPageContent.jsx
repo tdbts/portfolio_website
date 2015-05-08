@@ -39,7 +39,7 @@ var PortfolioPageContent = React.createClass({
 
 	render: function () {
 		return (
-			<div className="fullHeightWidth">
+			<div id="#page_component_anchor" className="fullHeightWidth">
 				{this.state.currentPageView}
 			</div>
 		);

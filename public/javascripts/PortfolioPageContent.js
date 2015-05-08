@@ -39,7 +39,7 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 
 	render: function () {
 		return (
-			React.createElement("div", {className: "fullHeightWidth"}, 
+			React.createElement("div", {id: "#page_component_anchor", className: "fullHeightWidth"}, 
 				this.state.currentPageView
 			)
 		);

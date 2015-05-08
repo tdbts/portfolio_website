@@ -13,8 +13,8 @@ var ContactCircle = React.createClass({displayName: "ContactCircle",
 	componentDidMount: function () {
 		this.setState({
 			itemClass: "ch-item fullHeightWidth", 
-			infoClass: "ch-info fullHeightWidth", 
-			infoFrontClass: "ch-info-front contact_circle fullHeightWidth"			
+			infoClass: "ch-info inheritSize", 
+			infoFrontClass: "ch-info-front contact_circle"			
 		});
 	}, 
 
