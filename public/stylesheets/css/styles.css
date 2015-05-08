@@ -6700,11 +6700,15 @@ a {
 }
 @media (max-width: 480px) {
   #wallpaper {
-    max-height: 1320px;
+    max-height: 1400px;
   }
 }
-@media (min-width: 992px) {
+#contact_circle_unordered_list {
+  padding-top: 50px;
+}
+@media (min-width: 780px) {
   #contact_circle_unordered_list {
+    padding-top: 0px;
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-60%);
