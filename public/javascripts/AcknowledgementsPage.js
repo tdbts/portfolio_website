@@ -128,11 +128,11 @@ var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 
 	render: function () {
 		return (
-			React.createElement("div", {id: "acknowledgements_container", style: this.getStyles().acknowledgementsContainer}, 
-				React.createElement("div", {id: "page_header_container", className: "container"}, 
-					React.createElement("h1", {id: "page_header", className: "page-header"}, "Acknowledgements")
+			React.createElement("div", {id: "acknowledgements_container", className: "container-fluid", style: this.getStyles().acknowledgementsContainer}, 
+				React.createElement("div", {id: "page_header_container", className: "row"}, 
+					React.createElement("h1", {id: "page_header", className: "page-header col-sm-4"}, "Acknowledgements")
 				), 
-				React.createElement("div", {id: "scrollspy_container", className: "container"}, 
+				React.createElement("div", {id: "scrollspy_container"}, 
 					React.createElement("div", {className: "row"}, 
 						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
 							React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})

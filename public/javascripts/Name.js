@@ -13,7 +13,8 @@ var Name = React.createClass({displayName: "Name",
 				fontSize: "5.5em", 
 				textShadow: "1px 1px 5px #797979", 
 				borderBottom: "1px solid black", 
-				marginBottom: "15px"
+				marginBottom: "15px", 
+				position: "relative"
 			},			
 		};
 	}, 

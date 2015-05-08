@@ -128,11 +128,11 @@ var Acknowledgements = React.createClass({
 
 	render: function () {
 		return (
-			<div id="acknowledgements_container" style={this.getStyles().acknowledgementsContainer}>
-				<div id="page_header_container" className="container">
-					<h1 id="page_header" className="page-header">Acknowledgements</h1>
+			<div id="acknowledgements_container" className="container-fluid" style={this.getStyles().acknowledgementsContainer}>
+				<div id="page_header_container" className="row">
+					<h1 id="page_header" className="page-header col-sm-4">Acknowledgements</h1>
 				</div>
-				<div id="scrollspy_container" className="container">
+				<div id="scrollspy_container">
 					<div className="row">
 						<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
 							<AcknowledgementsNav menuOptions={this.props.menuOptions} />

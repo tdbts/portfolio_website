@@ -6600,6 +6600,22 @@ a {
 .bar-icon {
   font-size: 1.6em;
 }
+#career_description_container {
+  height: 70px;
+}
+@media (min-width: 768px) {
+  #career_description_container {
+    height: 50px;
+  }
+}
+#careerDescription {
+  width: 90%;
+}
+@media (min-width: 768px) {
+  #careerDescription {
+    width: 100%;
+  }
+}
 @media (min-width: 992px) {
   body {
     overflow-y: hidden;
@@ -6671,6 +6687,11 @@ a {
 #wallpaper {
   background: url('../../images/road_almost_bw_OPTIMIZED.jpg') no-repeat center center scroll;
   background-size: cover;
+}
+@media (max-width: 480px) {
+  #wallpaper {
+    max-height: 1320px;
+  }
 }
 .contact_icon {
   color: #38312a;

@@ -6,6 +6,8 @@ var CareerDescription = React.createClass({
 		return {
 			careerDescriptionContainer: {
 				marginBottom: "20px"
+				// , 
+				// height: "50px"
 			}, 
 
 			careerDescription: {
@@ -14,6 +16,8 @@ var CareerDescription = React.createClass({
 				color: "#e1e1e1", 
 				textShadow: "8px 7px 10px #2b2b2b", 
 				marginTop: "10px"
+				// , 
+				// width: "100%"
 			},
 
 			unbreakable: {

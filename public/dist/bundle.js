@@ -19971,11 +19971,11 @@ var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 
 	render: function () {
 		return (
-			React.createElement("div", {id: "acknowledgements_container", style: this.getStyles().acknowledgementsContainer}, 
-				React.createElement("div", {id: "page_header_container", className: "container"}, 
-					React.createElement("h1", {id: "page_header", className: "page-header"}, "Acknowledgements")
+			React.createElement("div", {id: "acknowledgements_container", className: "container-fluid", style: this.getStyles().acknowledgementsContainer}, 
+				React.createElement("div", {id: "page_header_container", className: "row"}, 
+					React.createElement("h1", {id: "page_header", className: "page-header col-sm-4"}, "Acknowledgements")
 				), 
-				React.createElement("div", {id: "scrollspy_container", className: "container"}, 
+				React.createElement("div", {id: "scrollspy_container"}, 
 					React.createElement("div", {className: "row"}, 
 						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
 							React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
@@ -20047,6 +20047,8 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 		return {
 			careerDescriptionContainer: {
 				marginBottom: "20px"
+				// , 
+				// height: "50px"
 			}, 
 
 			careerDescription: {
@@ -20055,6 +20057,8 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 				color: "#e1e1e1", 
 				textShadow: "8px 7px 10px #2b2b2b", 
 				marginTop: "10px"
+				// , 
+				// width: "100%"
 			},
 
 			unbreakable: {
@@ -20175,7 +20179,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "5", 
 					content: (
-						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
+						React.createElement("div", {id: "last_circle", className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#", id: "contactLink-4"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_5", "data-toggle": "tooltip", "data-placement": "left", title: "Facebook"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-facebook-square fa-stack-1x fa-inverse"})
@@ -20190,12 +20194,11 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 	}, 
 
 	getInitialState: function () {
-		var html = document.getElementsByTagName('html');
-
 		return {
 			gridClass: "", 
 			wallpaperHeight: {
-				height: null
+				height: null, 
+				maxHeight: null
 			}
 		};
 	}, 
@@ -20213,7 +20216,18 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 	}, 
 
 	updateWallPaperDimensions: function () {
-		this.setState({wallpaperHeight: {height: (window.innerHeight + window.scrollY).toString() + "px"}});
+		var scrollTop = $(window).scrollTop(); 
+		var elementOffset = $('#last_circle').offset().top; 
+		var distance = elementOffset - scrollTop;
+		
+		this.setState({
+			wallpaperHeight: {
+				height: (window.innerHeight + window.scrollY).toString() + "px"
+				// height: Math.max((window.innerHeight + window.scrollY).toString() + "px", distance.toString() + "px")
+				// ,  
+				// maxHeight: distance.toString() + "px"
+			}
+		});
 	}, 
 
 	componentDidMount: function () {
@@ -20227,6 +20241,12 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 		window.removeEventListener('resize', this.updateWallPaperDimensions);
 		window.removeEventListener('scroll', this.updateWallPaperDimensions);
 	},  
+
+	// getStyles: function () {
+	// 	return {
+	// 		wallpaper: {}
+	// 	};
+	// }, 
 
 	render: function () {
 		return (
@@ -20368,7 +20388,8 @@ var Name = React.createClass({displayName: "Name",
 				fontSize: "5.5em", 
 				textShadow: "1px 1px 5px #797979", 
 				borderBottom: "1px solid black", 
-				marginBottom: "15px"
+				marginBottom: "15px", 
+				position: "relative"
 			},			
 		};
 	}, 
