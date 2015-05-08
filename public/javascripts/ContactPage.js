@@ -61,7 +61,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 				{
 					idNum: "5", 
 					content: (
-						React.createElement("div", {id: "last_circle", className: "ch-info-back fullHeightWidth"}, 
+						React.createElement("div", {className: "ch-info-back fullHeightWidth"}, 
 							React.createElement("a", {href: "#", id: "contactLink-4"}, React.createElement("span", {className: "fa-stack fa-3x needs_tooltip contact_icon", id: "stack_5", "data-toggle": "tooltip", "data-placement": "left", title: "Facebook"}, 
 								React.createElement("span", {className: "fa fa-circle fa-stack-2x"}), 
 								React.createElement("span", {className: "fa fa-facebook-square fa-stack-1x fa-inverse"})
@@ -98,16 +98,9 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 	}, 
 
 	updateWallPaperDimensions: function () {
-		var scrollTop = $(window).scrollTop(); 
-		var elementOffset = $('#last_circle').offset().top; 
-		var distance = elementOffset - scrollTop;
-		
 		this.setState({
 			wallpaperHeight: {
 				height: (window.innerHeight + window.scrollY).toString() + "px"
-				// height: Math.max((window.innerHeight + window.scrollY).toString() + "px", distance.toString() + "px")
-				// ,  
-				// maxHeight: distance.toString() + "px"
 			}
 		});
 	}, 
@@ -123,12 +116,6 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 		window.removeEventListener('resize', this.updateWallPaperDimensions);
 		window.removeEventListener('scroll', this.updateWallPaperDimensions);
 	},  
-
-	// getStyles: function () {
-	// 	return {
-	// 		wallpaper: {}
-	// 	};
-	// }, 
 
 	render: function () {
 		return (

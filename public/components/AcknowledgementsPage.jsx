@@ -130,16 +130,14 @@ var Acknowledgements = React.createClass({
 		return (
 			<div id="acknowledgements_container" className="container-fluid" style={this.getStyles().acknowledgementsContainer}>
 				<div id="page_header_container" className="row">
-					<h1 id="page_header" className="page-header col-sm-4">Acknowledgements</h1>
+					<h1 id="page_header" className="page-header col-xs-10">Acknowledgements</h1>
 				</div>
-				<div id="scrollspy_container">
-					<div className="row">
-						<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
-							<AcknowledgementsNav menuOptions={this.props.menuOptions} />
-						</div>
-						<div id="acknowledgements_scrollable_container" className="col-md-8">
-							<AcknowledgementsScrollable scrollableSections={this.props.scrollableSections} />
-						</div>
+				<div id="scrollspy_container" className="row">
+					<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
+						<AcknowledgementsNav menuOptions={this.props.menuOptions} />
+					</div>
+					<div id="acknowledgements_scrollable_container" className="col-md-8">
+						<AcknowledgementsScrollable scrollableSections={this.props.scrollableSections} />
 					</div>
 				</div>	
 			</div>

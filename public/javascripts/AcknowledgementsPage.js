@@ -130,16 +130,14 @@ var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 		return (
 			React.createElement("div", {id: "acknowledgements_container", className: "container-fluid", style: this.getStyles().acknowledgementsContainer}, 
 				React.createElement("div", {id: "page_header_container", className: "row"}, 
-					React.createElement("h1", {id: "page_header", className: "page-header col-sm-4"}, "Acknowledgements")
+					React.createElement("h1", {id: "page_header", className: "page-header col-xs-10"}, "Acknowledgements")
 				), 
-				React.createElement("div", {id: "scrollspy_container"}, 
-					React.createElement("div", {className: "row"}, 
-						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
-							React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
-						), 
-						React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
-							React.createElement(AcknowledgementsScrollable, {scrollableSections: this.props.scrollableSections})
-						)
+				React.createElement("div", {id: "scrollspy_container", className: "row"}, 
+					React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
+						React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
+					), 
+					React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
+						React.createElement(AcknowledgementsScrollable, {scrollableSections: this.props.scrollableSections})
 					)
 				)	
 			)
