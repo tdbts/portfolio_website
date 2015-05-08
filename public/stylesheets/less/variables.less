@@ -16,12 +16,12 @@ a {
 	width: inherit;
 }
 
-.verticalAlign {
+.verticallyCentered(@top: 50%; @translation: -50%) {
   position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);	
+  top: @top;
+  -webkit-transform: translateY(@translation);
+  -ms-transform: translateY(@translation);
+  transform: translateY(@translation);	
 }
 
 #page_wrapper #page_content_wrapper #page_component_anchor {
