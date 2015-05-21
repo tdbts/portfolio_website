@@ -30,7 +30,7 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 		return (
 			React.createElement("div", {id: "career_description_container", style: this.getStyles().careerDescriptionContainer}, 
 				React.createElement("h1", {id: "careerDescription", className: "lead", style: this.getStyles().careerDescription}, 
-					React.createElement("span", {id: "descriptionLeft", className: "offPageLeft", ref: "descriptionLeft", style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {id: "descriptionRight", className: "offPageRight", ref: "descriptionRight", style: this.getStyles().unbreakable}, "Data Makeover Artist")
+					React.createElement("span", {id: "descriptionLeft", className: "offPageLeft career_description_text", ref: "descriptionLeft", style: this.getStyles().unbreakable}, "Web Development /"), " ", React.createElement("span", {id: "descriptionRight", className: "offPageRight career_description_text", ref: "descriptionRight", style: this.getStyles().unbreakable}, "Data Makeover Artist")
 				)
 			)			
 		);

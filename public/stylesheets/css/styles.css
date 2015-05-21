@@ -6624,6 +6624,13 @@ a {
     width: 100%;
   }
 }
+.career_description_text {
+  text-shadow: 0px 5px 10px black;
+}
+#welcomeButton {
+  -webkit-box-shadow: 1px 1px 10px black;
+  box-shadow: 1px 1px 10px black;
+}
 @media (min-width: 992px) {
   body {
     overflow-y: hidden;
@@ -6678,6 +6685,7 @@ a {
 #scrollable {
   border: 1px solid #CDCDCD;
   background-color: #EEEEEE;
+  width: 100%;
 }
 @media (min-width: 768px) {
   #scrollable {
@@ -6777,13 +6785,12 @@ h1 {
 .ch-info > div {
   display: block;
   background-position: center center;
-  -webkit-transition: all 0.4 linear;
-  -moz-transition: all 0.4 linear;
-  -o-transition: all 0.4 linear;
-  transition: all 0.4 linear;
-  -ms-transform-origin: 50% 0%;
-  -moz-transform-origin: 50% 0%;
+  -webkit-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
   -webkit-transform-origin: 50% 0%;
+  -moz-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
   -o-transform-origin: 50% 0%;
   transform-origin: 50% 0%;
 }
@@ -6793,10 +6800,10 @@ h1 {
   -mox-box-shadow: inset 0 0 0 16px rgba(0, 0, 0, 0.3);
 }
 .ch-info .ch-info-back {
-  transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
   -webkit-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
-  -moz-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
+  -ms-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
   -o-transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
+  transform: translate3d(0, 0, -220px) rotate3d(1, 0, 0, 90deg);
   background: #000;
   opacity: 0;
 }
@@ -6838,6 +6845,13 @@ h1 {
 }
 .ch-info p a:hover {
   color: rgba(255, 242, 34, 0.8);
+}
+.ch-item:hover .ch-info-front {
+  -webkit-transform: translate3d(0, 280px, 0) rotate3d(1, 0, 0, -90deg);
+  -ms-transform: translate3d(0, 280px, 0) rotate3d(1, 0, 0, -90deg);
+  -o-transform: translate3d(0, 280px, 0) rotate3d(1, 0, 0, -90deg);
+  transform: translate3d(0, 280px, 0) rotate3d(1, 0, 0, -90deg);
+  opacity: 0;
 }
 .ch-item:hover .ch-info-back {
   -webkit-transform: rotate3d(1, 0, 0, 0deg);

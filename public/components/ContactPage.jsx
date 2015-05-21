@@ -86,7 +86,9 @@ var ContactPage = React.createClass({
 	}, 
 
 	createContactCircles: function () {
-		var circles = this.props.circleBackContent.map(function (circle) {
+
+		var circles = this.props.circleBackContent.map(function (circle, index) {
+
 			return (
 				<li key={circle.idNum} className="circle_container">
 					<ContactCircle idNum={circle.idNum} content={circle.content} />

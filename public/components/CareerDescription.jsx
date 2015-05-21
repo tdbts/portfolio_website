@@ -30,7 +30,7 @@ var CareerDescription = React.createClass({
 		return (
 			<div id="career_description_container" style={this.getStyles().careerDescriptionContainer}>
 				<h1 id="careerDescription" className="lead" style={this.getStyles().careerDescription}>
-					<span id="descriptionLeft" className="offPageLeft" ref="descriptionLeft" style={this.getStyles().unbreakable}>Web Development /</span> <span id="descriptionRight" className="offPageRight" ref="descriptionRight" style={this.getStyles().unbreakable}>Data Makeover Artist</span>
+					<span id="descriptionLeft" className="offPageLeft career_description_text" ref="descriptionLeft" style={this.getStyles().unbreakable}>Web Development /</span> <span id="descriptionRight" className="offPageRight career_description_text" ref="descriptionRight" style={this.getStyles().unbreakable}>Data Makeover Artist</span>
 				</h1>
 			</div>			
 		);
