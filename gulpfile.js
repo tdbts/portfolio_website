@@ -6,7 +6,7 @@ var gulp = require('gulp'),
 	stylish = require('jshint-stylish'), 
 	source = require('vinyl-source-stream'), 
 	browserify = require('browserify'), 
-	react = require('gulp-react'), 
+	reactify = require('reactify'), 
 	logChanges = require('./src/logChanges');
 
 gulp.task('build-less', function () {
@@ -17,29 +17,22 @@ gulp.task('build-less', function () {
 		.pipe(gulp.dest('./public/stylesheets/css'));
 });
 
-gulp.task('transform', function () {
-	gulp.src(['public/components/*.jsx'])
-		.pipe(react())
-		.on('error', console.log.bind(console))
-		.pipe(gulp.dest('public/javascripts'));
+gulp.task('browserify', function () { 
+	console.log("BUNDLING FILES WITH BROWSERIFY and REACTIFY.");
+	var b = browserify(); 
+	b.transform(reactify); 
+	b.add('./public/javascripts/index.js'); 
 
-	console.log("TRANSFORM OF .jsx FILES COMPLETE.");	
-});
-
-gulp.task('browserify', function () {
-	console.log("BUNDLING FILES WITH BROWSERIFY.");
-
-	return browserify('./public/javascripts/index.js')
-		.bundle()
+	return b.bundle()
 		.on('error', function () {
 			notify.onError({
 				message: "<%= error.message %>"
 			}).apply(this, arguments);
 
 			this.emit('end');
-		})
+		})	
 		.pipe(source('bundle.js'))
-		.pipe(gulp.dest('./public/dist'));
+		.pipe(gulp.dest('public/dist'));	
 });
 
 gulp.task('jshint', function () {
@@ -62,7 +55,7 @@ gulp.task('watch', function () {
 
 	var jsHintWatcher = gulp.watch(jsHintSourceFiles, ['jshint']), 
 		lessWatcher = gulp.watch('./public/stylesheets/less/*.less', ['build-less']), 
-		componentWatcher = gulp.watch('./public/components/*.jsx', ['transform', 'browserify']), 
+		componentWatcher = gulp.watch('./public/components/*.jsx', ['browserify']), 
 		watchers = [jsHintWatcher, lessWatcher, componentWatcher]; 
 	
 	watchers.forEach(function (watcher) {
@@ -91,4 +84,4 @@ gulp.task('server-restart', function () {
 });
 
 gulp.task('default', ['watch']);
-gulp.task('build', ['jshint', 'build-less', 'transform', 'browserify', 'server-restart']);
+gulp.task('build', ['jshint', 'build-less', 'browserify', 'server-restart']);
