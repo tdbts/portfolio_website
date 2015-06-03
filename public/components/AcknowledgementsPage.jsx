@@ -1,8 +1,6 @@
 var React = require('react'), 
 	AcknowledgementsNav = require('./AcknowledgementsNav'), 
-	AcknowledgementsScrollable = require('./AcknowledgementsScrollable'), 
-	AcknowledgementsAppreciation = require('./AcknowledgementsAppreciation'), 
-	AcknowledgementsWebpage = require('./AcknowledgementsWebpage');
+	AcknowledgementsScrollable = require('./AcknowledgementsScrollable');
 
 var Acknowledgements = React.createClass({
 	getDefaultProps: function () {
@@ -128,18 +126,20 @@ var Acknowledgements = React.createClass({
 
 	render: function () {
 		return (
-			<div id="acknowledgements_container" className="container-fluid" style={this.getStyles().acknowledgementsContainer}>
-				<div id="page_header_container" className="row">
-					<h1 id="page_header" className="page-header col-xs-10">Acknowledgements</h1>
+			<div id="acknowledgements_background" className="fullHeightWidth">
+				<div id="acknowledgements_container" className="container-fluid" style={this.getStyles().acknowledgementsContainer}>
+					<div id="page_header_container" className="row">
+						<h1 id="page_header" className="page-header col-xs-10">Acknowledgements</h1>
+					</div>
+					<div id="scrollspy_container" className="row">
+						<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
+							<AcknowledgementsNav menuOptions={this.props.menuOptions} />
+						</div>
+						<div id="acknowledgements_scrollable_container" className="col-md-8">
+							<AcknowledgementsScrollable scrollableSections={this.props.scrollableSections} />
+						</div>
+					</div>	
 				</div>
-				<div id="scrollspy_container" className="row">
-					<div id="acknowledgements_nav_container" className="col-md-offset-1 col-md-3 hidden-xs nav">
-						<AcknowledgementsNav menuOptions={this.props.menuOptions} />
-					</div>
-					<div id="acknowledgements_scrollable_container" className="col-md-8">
-						<AcknowledgementsScrollable scrollableSections={this.props.scrollableSections} />
-					</div>
-				</div>	
 			</div>
 		);
 	}

@@ -6646,6 +6646,10 @@ a {
 .list-group li.focus a {
   color: #FFF;
 }
+#acknowledgements_background:before {
+  background: url('/images/NY_basketball_ct_OPTIMIZED.jpg') no-repeat center center scroll;
+  opacity: 0.5;
+}
 #acknowledgements_container {
   margin-top: 25px;
   position: absolute;
@@ -6681,6 +6685,9 @@ a {
   #page_header .small {
     font-size: 65%;
   }
+}
+#scrollspy_container {
+  margin-bottom: 50px;
 }
 #scrollable {
   border: 1px solid #CDCDCD;

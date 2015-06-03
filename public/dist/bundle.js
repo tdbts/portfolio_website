@@ -7,7 +7,8 @@ $(document).ready(function() {
 		React.render(React.createElement(PortfolioPageContent, null), document.getElementById('page_content_wrapper'));
 });
 
-},{"./PortfolioPageContent":169,"react":157}],2:[function(require,module,exports){
+
+},{"./PortfolioPageContent":167,"react":157}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -19780,39 +19781,6 @@ module.exports = require('./lib/React');
 },{"./lib/React":30}],158:[function(require,module,exports){
 var React = require('react');
 
-var AcknowledgementsAppreciation = React.createClass({displayName: "AcknowledgementsAppreciation",
-	getStyles: function () {
-		return {
-			resourceIntroduction: {
-				marginTop: "35px"
-			}
-		};	
-	}, 
-
-	render: function () {
-		return (
-			React.createElement("div", {className: "scrollable_section_content"}, 
-				React.createElement("div", {id: "appreciation_section_title", className: "acknowledgements_section_title"}, 
-					React.createElement("h4", {className: "lead"}, "Appreciation")
-				), 
-				React.createElement("div", {id: "appreciation_section_text", className: "acknowledgements_section_text"}, 
-					React.createElement("p", null, "This webpage and the amount of new things I've learned over the past few months could not have occurred without the help and support of a number of truly awesome people."), 
-					React.createElement("p", null, "I would like to thank my friends and family for the kindness, love and encouragement they have given me throughout these last few months of concentrated study."), 
-					React.createElement("p", null, "Thanks also to the web development and programming community, whose patience and willingness to teach continues to astound me day in and day out."), 
-					React.createElement("p", {id: "resource_introduction", style: this.getStyles().resourceIntroduction}, 
-						React.createElement("em", null, "This site was created with help from the following resources"), ":"
-					)
-				)
-			)			
-		);
-	}
-});
-
-module.exports = AcknowledgementsAppreciation;
-
-},{"react":157}],159:[function(require,module,exports){
-var React = require('react');
-
 var AcknowledgementsNav = React.createClass({displayName: "AcknowledgementsNav",
 
 	getNavMenuItems: function (menuOptions) {
@@ -19840,12 +19808,14 @@ var AcknowledgementsNav = React.createClass({displayName: "AcknowledgementsNav",
 
 module.exports = AcknowledgementsNav;
 
-},{"react":157}],160:[function(require,module,exports){
+
+},{"react":157}],159:[function(require,module,exports){
 var React = require('react'), 
 	AcknowledgementsNav = require('./AcknowledgementsNav'), 
-	AcknowledgementsScrollable = require('./AcknowledgementsScrollable'), 
-	AcknowledgementsAppreciation = require('./AcknowledgementsAppreciation'), 
-	AcknowledgementsWebpage = require('./AcknowledgementsWebpage');
+	AcknowledgementsScrollable = require('./AcknowledgementsScrollable');
+	// , 
+	// AcknowledgementsAppreciation = require('./AcknowledgementsAppreciation'), 
+	// AcknowledgementsWebpage = require('./AcknowledgementsWebpage');
 
 var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 	getDefaultProps: function () {
@@ -19971,25 +19941,28 @@ var Acknowledgements = React.createClass({displayName: "Acknowledgements",
 
 	render: function () {
 		return (
-			React.createElement("div", {id: "acknowledgements_container", className: "container-fluid", style: this.getStyles().acknowledgementsContainer}, 
-				React.createElement("div", {id: "page_header_container", className: "row"}, 
-					React.createElement("h1", {id: "page_header", className: "page-header col-xs-10"}, "Acknowledgements")
-				), 
-				React.createElement("div", {id: "scrollspy_container", className: "row"}, 
-					React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
-						React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
+			React.createElement("div", {id: "acknowledgements_background", className: "fullHeightWidth"}, 
+				React.createElement("div", {id: "acknowledgements_container", className: "container-fluid", style: this.getStyles().acknowledgementsContainer}, 
+					React.createElement("div", {id: "page_header_container", className: "row"}, 
+						React.createElement("h1", {id: "page_header", className: "page-header col-xs-10"}, "Acknowledgements")
 					), 
-					React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
-						React.createElement(AcknowledgementsScrollable, {scrollableSections: this.props.scrollableSections})
-					)
-				)	
+					React.createElement("div", {id: "scrollspy_container", className: "row"}, 
+						React.createElement("div", {id: "acknowledgements_nav_container", className: "col-md-offset-1 col-md-3 hidden-xs nav"}, 
+							React.createElement(AcknowledgementsNav, {menuOptions: this.props.menuOptions})
+						), 
+						React.createElement("div", {id: "acknowledgements_scrollable_container", className: "col-md-8"}, 
+							React.createElement(AcknowledgementsScrollable, {scrollableSections: this.props.scrollableSections})
+						)
+					)	
+				)
 			)
 		);
 	}
 });
 
 module.exports = Acknowledgements;
-},{"./AcknowledgementsAppreciation":158,"./AcknowledgementsNav":159,"./AcknowledgementsScrollable":161,"./AcknowledgementsWebpage":162,"react":157}],161:[function(require,module,exports){
+
+},{"./AcknowledgementsNav":158,"./AcknowledgementsScrollable":160,"react":157}],160:[function(require,module,exports){
 var React = require('react'), 
 	ScrollableSection = require('./ScrollableSection');
 
@@ -20013,30 +19986,8 @@ var AcknowledgementsScrollable = React.createClass({displayName: "Acknowledgemen
 
 module.exports = AcknowledgementsScrollable;
 
-},{"./ScrollableSection":170,"react":157}],162:[function(require,module,exports){
-var React = require('react');
 
-var AcknowledgementsWebpage = React.createClass({displayName: "AcknowledgementsWebpage",
-	render: function () {
-		return (
-			React.createElement("div", {className: "scrollable_section_content"}, 
-				React.createElement("div", {id: "webpage_section_title", className: "acknowledgements_section_text"}, 
-					React.createElement("h4", {className: "lead"}, "Webpage")
-				), 
-				React.createElement("div", {id: "webpage_section_text", className: "acknowledgements_section_text"}, 
-					React.createElement("p", null, React.createElement("a", {href: "http://www.getbootstrap.com"}, "Bootstrap"), " provided the HTML/CSS/Javascript framework for layout and responsiveness."), 
-					React.createElement("p", null, "The ", React.createElement("a", {href: "http://www.jquery.com"}, "jQuery"), " Javascript library was used everywhere to produce the site's functionality."), 
-					React.createElement("p", null, "The nifty icons used throughout the page were created by ", React.createElement("a", {href: "http://www.fortawesome.github.io/Font-Awesome"}, "Font Awesome"), "."), 
-					React.createElement("p", null, "Version control for building the site was made possible by ", React.createElement("a", {href: "http://www.git-scm.com"}, "Git"), ".")
-				)
-			)			
-		);
-	}
-});
-
-module.exports = AcknowledgementsWebpage;
-
-},{"react":157}],163:[function(require,module,exports){
+},{"./ScrollableSection":168,"react":157}],161:[function(require,module,exports){
 var React = require('react');
 
 var CareerDescription = React.createClass({displayName: "CareerDescription",
@@ -20078,7 +20029,8 @@ var CareerDescription = React.createClass({displayName: "CareerDescription",
 
 module.exports = CareerDescription;
 
-},{"react":157}],164:[function(require,module,exports){
+
+},{"react":157}],162:[function(require,module,exports){
 var React = require('react');
 
 var ContactCircle = React.createClass({displayName: "ContactCircle",
@@ -20113,7 +20065,8 @@ var ContactCircle = React.createClass({displayName: "ContactCircle",
 
 module.exports = ContactCircle;
 
-},{"react":157}],165:[function(require,module,exports){
+
+},{"react":157}],163:[function(require,module,exports){
 var React = require('react'), 
 	ContactCircle = require('./ContactCircle'), 
 	classNames = require('classnames');
@@ -20250,7 +20203,8 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 
 module.exports = ContactPage;
 
-},{"./ContactCircle":164,"classnames":173,"react":157}],166:[function(require,module,exports){
+
+},{"./ContactCircle":162,"classnames":171,"react":157}],164:[function(require,module,exports){
 var React = require('react'), 
 	LandingPageElements = require('./LandingPageElements');
 
@@ -20275,7 +20229,8 @@ var LandingPage = React.createClass({displayName: "LandingPage",
 
 module.exports = LandingPage;
 
-},{"./LandingPageElements":167,"react":157}],167:[function(require,module,exports){
+
+},{"./LandingPageElements":165,"react":157}],165:[function(require,module,exports){
 var React = require('react'), 
 	Name = require('./Name'), 
 	CareerDescription = require('./CareerDescription'), 
@@ -20359,7 +20314,8 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 
 module.exports = LandingPageHeader;
 
-},{"./CareerDescription":163,"./Name":168,"./WelcomeButton":172,"react":157}],168:[function(require,module,exports){
+
+},{"./CareerDescription":161,"./Name":166,"./WelcomeButton":170,"react":157}],166:[function(require,module,exports){
 var React = require('react');
 
 var Name = React.createClass({displayName: "Name",
@@ -20392,7 +20348,8 @@ var Name = React.createClass({displayName: "Name",
 
 module.exports = Name;
 
-},{"react":157}],169:[function(require,module,exports){
+
+},{"react":157}],167:[function(require,module,exports){
 var React = require('react'), 
 	LandingPage = require('./LandingPage'), 
 	AcknowledgementsPage = require('./AcknowledgementsPage'), 
@@ -20443,7 +20400,8 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 
 module.exports = PortfolioPageContent;
 
-},{"./AcknowledgementsPage":160,"./ContactPage":165,"./LandingPage":166,"react":157}],170:[function(require,module,exports){
+
+},{"./AcknowledgementsPage":159,"./ContactPage":163,"./LandingPage":164,"react":157}],168:[function(require,module,exports){
 var React = require('react'), 
 	ScrollableSectionContent = require('./ScrollableSectionContent');
 
@@ -20459,7 +20417,8 @@ var ScrollableSection = React.createClass({displayName: "ScrollableSection",
 
 module.exports = ScrollableSection;
 
-},{"./ScrollableSectionContent":171,"react":157}],171:[function(require,module,exports){
+
+},{"./ScrollableSectionContent":169,"react":157}],169:[function(require,module,exports){
 var React = require('react');
 
 var ScrollableSectionContent = React.createClass({displayName: "ScrollableSectionContent",
@@ -20479,7 +20438,8 @@ var ScrollableSectionContent = React.createClass({displayName: "ScrollableSectio
 
 module.exports = ScrollableSectionContent;
 
-},{"react":157}],172:[function(require,module,exports){
+
+},{"react":157}],170:[function(require,module,exports){
 var React = require('react');
 
 var WelcomeButton = React.createClass({displayName: "WelcomeButton",
@@ -20560,7 +20520,8 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 
 module.exports = WelcomeButton;
 
-},{"react":157}],173:[function(require,module,exports){
+
+},{"react":157}],171:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
