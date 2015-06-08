@@ -6550,6 +6550,7 @@ button.close {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   overflow-x: hidden;
+  overflow-y: scroll;
   position: relative;
 }
 @media (min-width: 992px) {
@@ -6866,4 +6867,44 @@ h1 {
 #email_input {
   padding-left: 15px;
   padding-right: 15px;
+}
+#tweet_cloud_info_container {
+  margin-top: 25px;
+}
+#tweet_cloud_menu_container {
+  max-width: 500px;
+}
+#tweet_cloud_menu_accordion .panel-body {
+  line-height: 1.5em;
+}
+.options button,
+.input-group button {
+  margin: 0px 3px;
+}
+#clouder span {
+  width: 250px;
+  padding: 5px;
+  border-radius: 10px;
+  word-wrap: normal;
+}
+.cloudTitle {
+  margin-top: 0px;
+}
+#feedCloudOptions,
+#searchCloudOptions {
+  display: none;
+}
+#image_container {
+  overflow: hidden;
+}
+#tweet_image {
+  display: block;
+  margin: auto;
+  max-height: 500px;
+}
+#cloudParent {
+  position: absolute;
+}
+#clouder {
+  margin-bottom: 50px;
 }

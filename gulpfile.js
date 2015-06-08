@@ -7,7 +7,8 @@ var gulp = require('gulp'),
 	source = require('vinyl-source-stream'), 
 	browserify = require('browserify'), 
 	reactify = require('reactify'), 
-	logChanges = require('./src/logChanges');
+	logChanges = require('./src/logChanges'), 
+	nodeInspector = require('gulp-node-inspector');
 
 gulp.task('build-less', function () {
 	console.log("BUILDING LESS.");
@@ -84,5 +85,11 @@ gulp.task('server-restart', function () {
 	});
 });
 
+gulp.task('node-inspector', function () {
+	gulp.src('./bin/www')
+		.pipe(nodeInspector());
+});
+
 gulp.task('default', ['watch']);
 gulp.task('build', ['jshint', 'build-less', 'browserify', 'server-restart']);
+gulp.task('debug', ['jshint', 'build-less', 'browserify', 'server-restart', 'node-inspector']);
