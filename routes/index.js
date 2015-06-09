@@ -1,8 +1,7 @@
 var express = require('express'), 
 	router = express.Router(), 
 	setActiveTab = require('../src/setActiveTab'), 
-	twitterTimelineSearch = require('../src/twitterAPI/twitterTimelineSearch'), 
-	twitterKeywordSearch = require('../src/twitterAPI/twitterKeywordSearch');
+	mapSearchTypeToSearchModule = require('../src/twitterAPI/mapSearchTypeToSearchModule');
 
 router.get('*', function (req, res, next) {
 	req.activeRoute = req.activeRoute || '/'; 
@@ -20,14 +19,9 @@ router.get('/', function (req, res) {
 	res.render('navigation', req.viewOptions);
 });
 
-router.get('/portfolio/tag_cloud/twitterTimelineSearch/:twitterHandle', function (req, res) {
-	console.log("ROUTING FOR TWITTER TIMELINE SEARCH.");
-	twitterTimelineSearch(req, res);
-});
+router.get('/portfolio/tag_cloud/api/:searchType/:userInput', function (req, res) {
 
-router.get('/portfolio/tag_cloud/twitterKeywordSearch/:searchTerms', function (req, res) {
-	
-	twitterKeywordSearch(req, res);
+	mapSearchTypeToSearchModule(req.params.searchType, req, res);
 });
 
 router.get('/:path/*', function (req, res, next) {

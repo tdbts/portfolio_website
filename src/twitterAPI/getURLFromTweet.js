@@ -1,4 +1,5 @@
-var UrlDataObj = require('./UrlDataObj');
+var UrlDataObj = require('./UrlDataObj'), 
+	debug = require('debug')('getURLFromTweet');
 
 module.exports = function (theTweet) {
 	var urlLocation = theTweet.entities.urls ? theTweet.entities.urls : [], 

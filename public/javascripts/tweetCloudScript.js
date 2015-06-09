@@ -277,14 +277,14 @@ $(document).ready(function() {
 				url = tweet.url;
 				imageInTweet = tweet.isImage;
 
-				if (whichResults === "twitterTimelineSearch") {
+				if (whichResults === "api/twitterTimelineSearch") {
 
 					tweetDate = createDate(tweet.date, false);
 
 					displayText = tweetText + " \n" + tweetDate;
 				}
 
-				if (whichResults === "twitterKeywordSearch") {
+				if (whichResults === "api/twitterKeywordSearch") {
 
 					var userName = "- @" + tweet.screen_name;
 					tweetDate = createDate(tweet.date, true);
@@ -293,7 +293,6 @@ $(document).ready(function() {
 				}
 
 				var newTweetTagObject = createObjectForCloud(displayText, url, variableToSaveTo, imageInTweet);
-				console.log(newTweetTagObject);
 
 				variableToSaveTo.push(newTweetTagObject);
 			}
@@ -498,8 +497,6 @@ $(document).ready(function() {
 			getTenMoreTweets: function() {
 				
 				this.init.call(cloudModule, setOfTenTweets.returnTenTweets.call(setOfTenTweets));
-				console.log("THE CURRENT TWEETS ARE: ");
-				console.log(setOfTenTweets.getCurrentTweets());
 			},
 
 			activateTenMoreTweetsButton: function() {
@@ -522,7 +519,7 @@ $(document).ready(function() {
 
 			// AJAX request to Twitter for tweet data
 			search: function(searchTerms, searchURL) {
-				console.log("SEARCH URL: ", searchURL);
+
 				// If cloud tags already exist, kill cloud before
 				// running the AJAX request
 				cloudModule.checkIfCloudExists();
@@ -533,18 +530,19 @@ $(document).ready(function() {
 					url: searchURL + "/" + searchTerms,
 
 					success: function(data) {
-						console.log("Data from search: ", data);
+						// DEVELOPMENT ONLY 
+						// console.log("Data from search: ", data);
+
 						// Take the returned string and parse into queryable JSON
 						// The server will have already cut the data down to 
 						// only what is needed for the cloud
 						var parsedData = JSON.parse(data);
-						console.log("PARSED DATA: ", parsedData);
 
 						tagModule.addTweetTags(parsedData, twitterCloudTags, searchURL);
 						setOfTenTweets.init(twitterCloudTags);
 
 						cloudModule.init(setOfTenTweets.returnTenTweets());
-						console.log("THE CURRENT TWEETS ARE: ");
+
 						setOfTenTweets.getCurrentTweets();
 
 						if (searchURL === 'twitterKeywordSearch') {
@@ -583,12 +581,12 @@ $(document).ready(function() {
 
 			executeTwitterAccountSearch: function() {
 				
-				this.executeSearch.call(searchModule, '#feed_cloud_input', 'twitterTimelineSearch', '#feedCloudOptions');
+				this.executeSearch.call(searchModule, '#feed_cloud_input', 'api/twitterTimelineSearch', '#feedCloudOptions');
 			},
 
 			executeTwitterTermSearch: function() {
 				
-				this.executeSearch.call(searchModule, '#search_cloud_input', 'twitterKeywordSearch', '#searchCloudOptions');
+				this.executeSearch.call(searchModule, '#search_cloud_input', 'api/twitterKeywordSearcapi/h', '#searchCloudOptions');
 			}
 
 		};
@@ -628,7 +626,6 @@ $(document).ready(function() {
 
 		function resetCounter() {
 			counter = 0;
-			console.log("Counter reset to 0.");
 		}
 
 		// Takes an array of elements, and breaks it up into sets of a 
@@ -702,8 +699,6 @@ $(document).ready(function() {
 		var theTweets = setOfTenTweets.getCurrentTweets();
 		var result = [];
 		var argLength = arguments.length;
-		console.log("# of arguments passed to CurrentTweets: ");
-		console.log(argLength);
 
 		if (argLength === 0) {
 			return theTweets;

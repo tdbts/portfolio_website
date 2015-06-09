@@ -3,13 +3,13 @@ var sanitizeString = require('./sanitizeString'),
 	handleTwitterAPICallResults = require('./handleTwitterAPICallResults');
 
 module.exports = function (req, res) {
-	var userInput = req.params.twitterHandle, 
-		twitterHandle = sanitizeString(userInput); 
+	var twitterHandle = req.params.userInput, 
+		twitterHandle = sanitizeString(twitterHandle); 
 
 	var client = getTwitterClient();
 
 	client.get('statuses/user_timeline', {screen_name: twitterHandle, count: 200}, function (err, tweets, response) {
-
+		
 		var result = handleTwitterAPICallResults(err, tweets);
 
 		res.end(result);

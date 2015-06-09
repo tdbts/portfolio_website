@@ -3,8 +3,8 @@ var sanitizeString = require('./sanitizeString'),
 	handleTwitterAPICallResults = require('./handleTwitterAPICallResults');
 
 module.exports = function (req, res) {
-	var userInput = req.params.searchTerms, 
-		searchTerms = sanitizeString(userInput);
+	var searchTerms = req.params.userInput, 
+		searchTerms = sanitizeString(searchTerms);
 
 	var client = getTwitterClient();
 
