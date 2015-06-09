@@ -8,18 +8,18 @@ $(document).ready(function() {
 		
 		// Private f(x)'s
 
-		var getVal = function(selector) {
+		// var getVal = function(selector) {
 
-			return $(selector).val();
-		};
+		// 	return $(selector).val();
+		// };
 
-		var clearField = function(selectors) {
+		// var clearField = function(selectors) {
 					
-			selectors.forEach(function(fieldID) {
+		// 	selectors.forEach(function(fieldID) {
 				
-				$(fieldID).val("");
-			});
-		};
+		// 		$(fieldID).val("");
+		// 	});
+		// };
 
 		var revealOptionsCollapse = function() {
 				
@@ -134,49 +134,49 @@ $(document).ready(function() {
 			});
 		};
 
-		// Email modal: After submission
-		var activatePopover = function(popoverID) {
+		// // Email modal: After submission
+		// var activatePopover = function(popoverID) {
 
-			$(popoverID).popover({content: 'Thanks for reaching out!'}, 'click');
-		};
+		// 	$(popoverID).popover({content: 'Thanks for reaching out!'}, 'click');
+		// };
 
-		var emailModalAJAX = function() {
+		// var emailModalAJAX = function() {
 			
-			$('#send_email_btn').on('click', function(event) {
+		// 	$('#send_email_btn').on('click', function(event) {
 
-				var firstName = getVal('#first_name');
-				var lastName = getVal('#last_name');
-				var email = getVal('#email');
-				var comments = getVal('#comments');
-				var url = '/shared/send_form_email.php';
+		// 		var firstName = getVal('#first_name');
+		// 		var lastName = getVal('#last_name');
+		// 		var email = getVal('#email');
+		// 		var comments = getVal('#comments');
+		// 		var url = '/php/send_form_email.php';
 
-				var request = $.ajax({
+		// 		var request = $.ajax({
 
-					type: "POST",
-					url: url,
-					data: {
-						first_name: firstName,
-						last_name: lastName,
-						email: email,
-						comments: comments
-					}
-				});
+		// 			type: "POST",
+		// 			url: url,
+		// 			data: {
+		// 				first_name: firstName,
+		// 				last_name: lastName,
+		// 				email: email,
+		// 				comments: comments
+		// 			}
+		// 		});
 
-				request.done(function() {
+		// 		request.done(function() {
 					
-					$('#emailModal').modal('hide');
-					clearField(['#first_name', '#last_name', '#email', '#comments']);
-					$('#send_email_btn').popover('hide');
-				});
+		// 			$('#emailModal').modal('hide');
+		// 			clearField(['#first_name', '#last_name', '#email', '#comments']);
+		// 			$('#send_email_btn').popover('hide');
+		// 		});
 
-				request.fail(function() {
+		// 		request.fail(function() {
 					
-					alert('Sorry, AJAX was unable to process that request!');
-				});
+		// 			alert('Sorry, AJAX was unable to process that request!');
+		// 		});
 
-				event.preventDefault();
-			});
-		};
+		// 		event.preventDefault();
+		// 	});
+		// };
 
 		return {
 
@@ -197,8 +197,9 @@ $(document).ready(function() {
 			displayOptions: displayOptions, 
 			
 			attachLinks: attachLinks, 
-			activatePopover: activatePopover, 
-			emailModalAJAX: emailModalAJAX
+			activatePopover: activatePopover
+			// , 
+			// emailModalAJAX: emailModalAJAX
 		
 		};
 	
@@ -867,9 +868,9 @@ $(document).ready(function() {
 	}
 
 	var methodInvocationObj = {
-		modules: createArrayOfSameElement(domModule, 6),
-		methods: ['activateTooltip', 'activatePopover', 'deactivateToggleForAccordion', 'customToggleForAccordion', 'openAccordionSegment', 'attachLinks'],
-		params: ['.bar-icon-right', '#send_email_btn', '.collapse', '.panel_heading_anchor', '#panel_collapse_what_it_is', [
+		modules: createArrayOfSameElement(domModule, 5),
+		methods: ['activateTooltip', /*'activatePopover', */'deactivateToggleForAccordion', 'customToggleForAccordion', 'openAccordionSegment', 'attachLinks'],
+		params: ['.bar-icon-right', /*'#send_email_btn',*/'.collapse', '.panel_heading_anchor', '#panel_collapse_what_it_is', [
 			{selector: '#twitter_icon', url: 'http://www.twitter.com/VRSanchez8717'}, 
 			{selector: '#github_icon', url: 'http://www.github.com/tdbts'}
 			]]
@@ -878,14 +879,15 @@ $(document).ready(function() {
 	invokeMultipleModuleMethods(methodInvocationObj, callModuleMethod);
 
 	var thisCriticalMethodInvocationObj = {
-		modules: [domModule, domModule, cloudModule, cloudModule, domModule], 
-		methods: ['activateSearchField', 'activateSearchField', 'activateTenMoreTweetsButton', 'activateModalCloseButtons', 'emailModalAJAX'], 
+		modules: [domModule, domModule, cloudModule, cloudModule/*, domModule*/], 
+		methods: ['activateSearchField', 'activateSearchField', 'activateTenMoreTweetsButton', 'activateModalCloseButtons'/*, 'emailModalAJAX'*/], 
 		params: [
 			['#createTwitterFeedCloud', '#feed_cloud_input', searchModule.executeTwitterAccountSearch.bind(searchModule)],
 			['#createTweetSearchCloud', '#search_cloud_input', searchModule.executeTwitterTermSearch.bind(searchModule)],
 			[],
-			['.modal_close'],
-			[]
+			['.modal_close']
+			// ,
+			// []
 			]
 	};	
 

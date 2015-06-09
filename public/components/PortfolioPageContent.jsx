@@ -2,7 +2,8 @@ var React = require('react'),
 	LandingPage = require('./LandingPage'), 
 	AcknowledgementsPage = require('./AcknowledgementsPage'), 
 	ContactPage = require('./ContactPage'), 
-	TweetCloud = require('./TweetCloud');
+	TweetCloud = require('./TweetCloud'), 
+	EmailModal = require('./EmailModal');
 
 var PortfolioPageContent = React.createClass({
 	determineViewToRender: function () {
@@ -40,6 +41,7 @@ var PortfolioPageContent = React.createClass({
 		return (
 			<div id="#page_component_anchor" className="fullHeightWidth">
 				{this.determineViewToRender()}
+				<EmailModal />
 			</div>
 		);
 	}

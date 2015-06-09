@@ -1,4 +1,4 @@
-var sanitizeString = require('./sanitizeString'), 
+var sanitizeString = require('../sanitizeString'), 
 	getTwitterClient = require('./getTwitterClient'), 
 	handleTwitterAPICallResults = require('./handleTwitterAPICallResults');
 
