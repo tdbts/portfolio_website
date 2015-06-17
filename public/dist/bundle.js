@@ -29558,10 +29558,6 @@ var EmailModal = React.createClass({displayName: "EmailModal",
 	}, 
 
 	activateEmailModal: function () {
-		// var getVal = this.getVal, 
-		// 	hideModal = this.hideModal, 
-		// 	hidePopover = this.hidePopover, 
-		// 	clearField
 
 		$('#send_email_btn').on('click', function(event) {
 
