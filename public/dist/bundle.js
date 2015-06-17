@@ -29523,7 +29523,145 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 
 module.exports = ContactPage;
 
-},{"./ContactCircle":165,"classnames":185,"react":157}],167:[function(require,module,exports){
+},{"./ContactCircle":165,"classnames":187,"react":157}],167:[function(require,module,exports){
+var React = require('react'), 
+	invokeAll = require('../javascripts/invokeAll'), 
+	$ = window.jQuery || require('jquery');
+
+var EmailModal = React.createClass({displayName: "EmailModal",
+	getVal: function (selector) {
+		
+		return $(selector).val();
+	}, 
+
+	hideModal: function () {
+
+		$('#emailModal').modal('hide');
+	}, 
+
+	clearField: function (selectors) {
+		
+		selectors.forEach(function (fieldID) {
+			
+			$(fieldID).val("");
+		});
+	}, 
+
+	activatePopover: function(popoverID) {
+
+		$(popoverID).popover({content: 'Thanks for reaching out!'}, 'click');
+	}, 
+
+	hidePopover: function () {
+		
+		$('#send_email_btn').popover('hide');
+	}, 
+
+	activateEmailModal: function () {
+
+		$('#send_email_btn').on('click', function(event) {
+
+			var firstName = this.getVal('#first_name'),
+				lastName = this.getVal('#last_name'),
+				email = this.getVal('#email'),
+				comments = this.getVal('#comments'),
+				url = '/sendEmail';
+
+			var request = $.ajax({
+
+				type: "POST",
+				url: url,
+				data: { 
+					firstName: firstName,
+					lastName: lastName,
+					email: email,
+					comments: comments
+				} 
+			});
+
+			request.done(function() {
+
+				invokeAll([
+					this.hideModal, 
+					function () {
+						this.clearField(['#first_name', '#last_name', '#email', '#comments']);
+					}, 
+					this.hidePopover
+				]);
+			}.bind(this));
+
+			request.fail(function() {
+				
+				alert('Sorry, AJAX was unable to process that request!');
+			});
+
+			event.preventDefault();
+		}.bind(this));		
+	}, 
+
+	componentDidMount: function () {
+		
+		invokeAll([this.activatePopover, this.activateEmailModal])
+	}, 
+
+	render: function () {
+		var emailInputStyle = {
+				paddingLeft: "15px", 
+				paddingRight: "15px"
+			};
+
+		return (
+			React.createElement("div", {id: "emailModal", className: "modal fade", tabIndex: "-1", role: "dialog", "aria-labelledby": "myModalLabel", "aria-hidden": "true"}, 
+				React.createElement("div", {className: "modal-dialog"}, 
+					React.createElement("div", {className: "modal-content"}, 
+						React.createElement("div", {className: "modal-header"}, 
+							React.createElement("button", {type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true"}, "×"), 
+							React.createElement("h4", {className: "modal-title"}, "Contact Form")
+						), 
+						React.createElement("div", {className: "modal-body"}, 
+							React.createElement("form", {action: "#", name: "commentform", method: "post", id: "emailForm", className: "form-horizontal"}, 
+								React.createElement("div", {className: "form-group"}, 
+									React.createElement("label", {htmlFor: "first_name", className: "control-label col-md-4"}, "First Name"), 
+									React.createElement("div", {className: "col-md-6"}, 
+										React.createElement("input", {type: "text", className: "form-control", id: "first_name", name: "first_name", placeholder: "First Name"})
+									)
+								), 
+								React.createElement("div", {className: "form-group"}, 
+									React.createElement("label", {htmlFor: "last_name", className: "control-label col-md-4"}, "Last Name"), 
+									React.createElement("div", {className: "col-md-6"}, 
+										React.createElement("input", {type: "text", className: "form-control", id: "last_name", name: "last_name", placeholder: "Last Name"})
+									)
+								), 
+								React.createElement("div", {className: "form-group"}, 
+									React.createElement("label", {htmlFor: "email", className: "control-label col-md-4"}, "Email Address"), 
+									React.createElement("div", {className: "col-md-6 input-group", style: emailInputStyle}, 
+										React.createElement("span", {className: "input-group-addon"}, "@"), 
+										React.createElement("input", {type: "email", className: "form-control", id: "email", name: "email", placeholder: "Email Address"})
+									)
+								), 
+								React.createElement("div", {className: "form-group"}, 
+									React.createElement("label", {htmlFor: "comment", className: "control-label col-md-4"}, "Question or Comment"), 
+									React.createElement("div", {className: "col-md-6"}, 
+										React.createElement("textarea", {name: "comments", id: "comments", rows: "6", className: "form-control", placeholder: "Your question or comment here"})
+									)
+								), 
+								React.createElement("div", {className: "form-group"}, 
+									React.createElement("div", {className: "col-md-6"}, 
+										React.createElement("button", {className: "btn btn-primary pull-right", type: "button", value: "Submit", id: "send_email_btn"}, "Send")
+									)
+								)
+							)
+						)
+					)
+				)
+			)			
+		);
+	}
+});
+
+module.exports = EmailModal;
+
+},{"../javascripts/invokeAll":186,"jquery":2,"react":157}],168:[function(require,module,exports){
 var React = require('react');
 
 var FeedCloudOptions = React.createClass({displayName: "FeedCloudOptions",
