@@ -586,7 +586,7 @@ $(document).ready(function() {
 
 			executeTwitterTermSearch: function() {
 				
-				this.executeSearch.call(searchModule, '#search_cloud_input', 'api/twitterKeywordSearcapi/h', '#searchCloudOptions');
+				this.executeSearch.call(searchModule, '#search_cloud_input', 'api/twitterKeywordSearch', '#searchCloudOptions');
 			}
 
 		};

@@ -29309,7 +29309,7 @@ var AcknowledgementsScrollable = React.createClass({displayName: "Acknowledgemen
 
 module.exports = AcknowledgementsScrollable;
 
-},{"./ScrollableSection":172,"react":157}],164:[function(require,module,exports){
+},{"./ScrollableSection":173,"react":157}],164:[function(require,module,exports){
 var React = require('react');
 
 var CareerDescription = React.createClass({displayName: "CareerDescription",
@@ -29678,7 +29678,7 @@ var FeedCloudOptions = React.createClass({displayName: "FeedCloudOptions",
 
 module.exports = FeedCloudOptions;
 
-},{"react":157}],168:[function(require,module,exports){
+},{"react":157}],169:[function(require,module,exports){
 var React = require('react'), 
 	LandingPageElements = require('./LandingPageElements');
 
@@ -29703,7 +29703,7 @@ var LandingPage = React.createClass({displayName: "LandingPage",
 
 module.exports = LandingPage;
 
-},{"./LandingPageElements":169,"react":157}],169:[function(require,module,exports){
+},{"./LandingPageElements":170,"react":157}],170:[function(require,module,exports){
 var React = require('react'), 
 	Name = require('./Name'), 
 	CareerDescription = require('./CareerDescription'), 
@@ -29787,7 +29787,7 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 
 module.exports = LandingPageHeader;
 
-},{"./CareerDescription":164,"./Name":170,"./WelcomeButton":183,"react":157}],170:[function(require,module,exports){
+},{"./CareerDescription":164,"./Name":171,"./WelcomeButton":184,"react":157}],171:[function(require,module,exports){
 var React = require('react');
 
 var Name = React.createClass({displayName: "Name",
@@ -29820,12 +29820,13 @@ var Name = React.createClass({displayName: "Name",
 
 module.exports = Name;
 
-},{"react":157}],171:[function(require,module,exports){
+},{"react":157}],172:[function(require,module,exports){
 var React = require('react'), 
 	LandingPage = require('./LandingPage'), 
 	AcknowledgementsPage = require('./AcknowledgementsPage'), 
 	ContactPage = require('./ContactPage'), 
-	TweetCloud = require('./TweetCloud');
+	TweetCloud = require('./TweetCloud'), 
+	EmailModal = require('./EmailModal');
 
 var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent",
 	determineViewToRender: function () {
@@ -29862,7 +29863,8 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 	render: function () {
 		return (
 			React.createElement("div", {id: "#page_component_anchor", className: "fullHeightWidth"}, 
-				this.determineViewToRender()
+				this.determineViewToRender(), 
+				React.createElement(EmailModal, null)
 			)
 		);
 	}
@@ -29870,7 +29872,7 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 
 module.exports = PortfolioPageContent;
 
-},{"./AcknowledgementsPage":162,"./ContactPage":166,"./LandingPage":168,"./TweetCloud":175,"react":157}],172:[function(require,module,exports){
+},{"./AcknowledgementsPage":162,"./ContactPage":166,"./EmailModal":167,"./LandingPage":169,"./TweetCloud":176,"react":157}],173:[function(require,module,exports){
 var React = require('react'), 
 	ScrollableSectionContent = require('./ScrollableSectionContent');
 
@@ -29886,7 +29888,7 @@ var ScrollableSection = React.createClass({displayName: "ScrollableSection",
 
 module.exports = ScrollableSection;
 
-},{"./ScrollableSectionContent":173,"react":157}],173:[function(require,module,exports){
+},{"./ScrollableSectionContent":174,"react":157}],174:[function(require,module,exports){
 var React = require('react');
 
 var ScrollableSectionContent = React.createClass({displayName: "ScrollableSectionContent",
@@ -29906,7 +29908,7 @@ var ScrollableSectionContent = React.createClass({displayName: "ScrollableSectio
 
 module.exports = ScrollableSectionContent;
 
-},{"react":157}],174:[function(require,module,exports){
+},{"react":157}],175:[function(require,module,exports){
 var React = require('react');
 
 var SearchCloudOptions = React.createClass({displayName: "SearchCloudOptions",
@@ -29924,7 +29926,7 @@ var SearchCloudOptions = React.createClass({displayName: "SearchCloudOptions",
 
 module.exports = SearchCloudOptions;
 
-},{"react":157}],175:[function(require,module,exports){
+},{"react":157}],176:[function(require,module,exports){
 var React = require('react'), 
 	TweetCloudMenu = require('./TweetCloudMenu'), 
 	TweetCloudSearchInput = require('./TweetCloudSearchInput'), 
@@ -29969,7 +29971,7 @@ var TweetCloud = React.createClass({displayName: "TweetCloud",
 
 module.exports = TweetCloud;
 
-},{"./TweetCloudImageModal":176,"./TweetCloudMenu":177,"./TweetCloudSearchInput":182,"jquery":2,"react":157}],176:[function(require,module,exports){
+},{"./TweetCloudImageModal":177,"./TweetCloudMenu":178,"./TweetCloudSearchInput":183,"jquery":2,"react":157}],177:[function(require,module,exports){
 var React = require('react');
 
 var TweetCloudImageModal = React.createClass({displayName: "TweetCloudImageModal",
@@ -29999,7 +30001,7 @@ var TweetCloudImageModal = React.createClass({displayName: "TweetCloudImageModal
 
 module.exports = TweetCloudImageModal;
 
-},{"react":157}],177:[function(require,module,exports){
+},{"react":157}],178:[function(require,module,exports){
 var React = require('react'), 
 	AccordionPanel = require('./AccordionPanel'), 
 	TweetCloudMenuBodyWhatItIs = require('./TweetCloudMenuBodyWhatItIs'), 
@@ -30040,7 +30042,7 @@ var TweetCloudMenu = React.createClass({displayName: "TweetCloudMenu",
 
 module.exports = TweetCloudMenu;
 
-},{"./AccordionPanel":158,"./TweetCloudMenuBodyHowItWorks":178,"./TweetCloudMenuBodySearchOptions":179,"./TweetCloudMenuBodyWhatItIs":180,"react":157}],178:[function(require,module,exports){
+},{"./AccordionPanel":158,"./TweetCloudMenuBodyHowItWorks":179,"./TweetCloudMenuBodySearchOptions":180,"./TweetCloudMenuBodyWhatItIs":181,"react":157}],179:[function(require,module,exports){
 var React = require('react');
 
 var TweetCloudMenuBodyHowItWorks = React.createClass({displayName: "TweetCloudMenuBodyHowItWorks",
@@ -30060,7 +30062,7 @@ var TweetCloudMenuBodyHowItWorks = React.createClass({displayName: "TweetCloudMe
 
 module.exports = TweetCloudMenuBodyHowItWorks;
 
-},{"react":157}],179:[function(require,module,exports){
+},{"react":157}],180:[function(require,module,exports){
 var React = require('react'), 
 	TweetCloudOptions = require('./TweetCloudOptions');
 
@@ -30096,7 +30098,7 @@ var TweetCloudMenuBodySearchOptions = React.createClass({displayName: "TweetClou
 
 module.exports = TweetCloudMenuBodySearchOptions;
 
-},{"./TweetCloudOptions":181,"react":157}],180:[function(require,module,exports){
+},{"./TweetCloudOptions":182,"react":157}],181:[function(require,module,exports){
 var React = require('react');
 
 var TweetCloudMenuBodyWhatItIs = React.createClass({displayName: "TweetCloudMenuBodyWhatItIs",
@@ -30111,7 +30113,7 @@ var TweetCloudMenuBodyWhatItIs = React.createClass({displayName: "TweetCloudMenu
 
 module.exports = TweetCloudMenuBodyWhatItIs;
 
-},{"react":157}],181:[function(require,module,exports){
+},{"react":157}],182:[function(require,module,exports){
 var React = require('react'), 
 	FeedCloudOptions = require('./FeedCloudOptions'), 
 	SearchCloudOptions = require('./SearchCloudOptions');
@@ -30129,7 +30131,7 @@ var TweetCloudOptions = React.createClass({displayName: "TweetCloudOptions",
 
 module.exports = TweetCloudOptions;
 
-},{"./FeedCloudOptions":167,"./SearchCloudOptions":174,"react":157}],182:[function(require,module,exports){
+},{"./FeedCloudOptions":168,"./SearchCloudOptions":175,"react":157}],183:[function(require,module,exports){
 var React = require('react');
 
 var TweetCloudSearchInput = React.createClass({displayName: "TweetCloudSearchInput",
@@ -30149,7 +30151,7 @@ var TweetCloudSearchInput = React.createClass({displayName: "TweetCloudSearchInp
 
 module.exports = TweetCloudSearchInput;
 
-},{"react":157}],183:[function(require,module,exports){
+},{"react":157}],184:[function(require,module,exports){
 var React = require('react');
 
 var WelcomeButton = React.createClass({displayName: "WelcomeButton",
@@ -30230,7 +30232,7 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 
 module.exports = WelcomeButton;
 
-},{"react":157}],184:[function(require,module,exports){
+},{"react":157}],185:[function(require,module,exports){
 var React = require('react'),  
 	PortfolioPageContent = require('./PortfolioPageContent');
 
@@ -30239,7 +30241,17 @@ $(document).ready(function() {
 		React.render(React.createElement(PortfolioPageContent, null), document.getElementById('page_content_wrapper'));
 });
 
-},{"./PortfolioPageContent":171,"react":157}],185:[function(require,module,exports){
+},{"./PortfolioPageContent":172,"react":157}],186:[function(require,module,exports){
+module.exports = function (arrayOfFunctions) {
+	
+	arrayOfFunctions.forEach(function (func) {
+		
+		func();
+	});
+	
+};
+
+},{}],187:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -30288,4 +30300,4 @@ if (typeof define !== 'undefined' && define.amd) {
 	});
 }
 
-},{}]},{},[184]);
+},{}]},{},[185]);
