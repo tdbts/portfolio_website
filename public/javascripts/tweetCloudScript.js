@@ -148,7 +148,7 @@ $(document).ready(function() {
 				var lastName = getVal('#last_name');
 				var email = getVal('#email');
 				var comments = getVal('#comments');
-				var url = '/shared/send_form_email.php';
+				var url = './src/sendEmail.js';
 
 				var request = $.ajax({
 
