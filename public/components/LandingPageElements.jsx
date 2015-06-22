@@ -43,7 +43,8 @@ var LandingPageHeader = React.createClass({
 		$(React.findDOMNode(this)).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
 			$(descriptionLeft).animate({left: "0px"});
 			$(descriptionRight).animate({right: "0px"});
-		});		
+		});
+
 	}, 
 
 	startAnimation: function () {
@@ -71,7 +72,7 @@ var LandingPageHeader = React.createClass({
 					<div className="col-md-8 col-md-offset-2">
 						<Name />
 						<CareerDescription ref="careerDescription" />
-						<WelcomeButton />
+						<WelcomeButton ref="welcomeButton" />
 					</div>
 				</div>
 			</div>

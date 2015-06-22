@@ -1,5 +1,6 @@
 var React = require('react'), 
-	LandingPageElements = require('./LandingPageElements');
+	LandingPageElements = require('./LandingPageElements'), 
+	WelcomeModal = require('./WelcomeModal');
 
 var LandingPage = React.createClass({
 
@@ -15,6 +16,7 @@ var LandingPage = React.createClass({
 		return (
 			<header id="top" className="header fullHeightWidth" style={this.getStyles().top}>
 				<LandingPageElements />
+				<WelcomeModal handleHiddenWelcomeModal={this.props.handleHiddenWelcomeModal} />
 			</header>
 		);
 	}

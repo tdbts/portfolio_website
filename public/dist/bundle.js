@@ -29523,7 +29523,7 @@ var ContactPage = React.createClass({displayName: "ContactPage",
 
 module.exports = ContactPage;
 
-},{"./ContactCircle":165,"classnames":187,"react":157}],167:[function(require,module,exports){
+},{"./ContactCircle":165,"classnames":188,"react":157}],167:[function(require,module,exports){
 var React = require('react'), 
 	invokeAll = require('../javascripts/invokeAll'), 
 	$ = window.jQuery || require('jquery');
@@ -29661,7 +29661,7 @@ var EmailModal = React.createClass({displayName: "EmailModal",
 
 module.exports = EmailModal;
 
-},{"../javascripts/invokeAll":186,"jquery":2,"react":157}],168:[function(require,module,exports){
+},{"../javascripts/invokeAll":187,"jquery":2,"react":157}],168:[function(require,module,exports){
 var React = require('react');
 
 var FeedCloudOptions = React.createClass({displayName: "FeedCloudOptions",
@@ -29680,7 +29680,8 @@ module.exports = FeedCloudOptions;
 
 },{"react":157}],169:[function(require,module,exports){
 var React = require('react'), 
-	LandingPageElements = require('./LandingPageElements');
+	LandingPageElements = require('./LandingPageElements'), 
+	WelcomeModal = require('./WelcomeModal');
 
 var LandingPage = React.createClass({displayName: "LandingPage",
 
@@ -29695,7 +29696,8 @@ var LandingPage = React.createClass({displayName: "LandingPage",
 	render: function () {
 		return (
 			React.createElement("header", {id: "top", className: "header fullHeightWidth", style: this.getStyles().top}, 
-				React.createElement(LandingPageElements, null)
+				React.createElement(LandingPageElements, null), 
+				React.createElement(WelcomeModal, {handleHiddenWelcomeModal: this.props.handleHiddenWelcomeModal})
 			)
 		);
 	}
@@ -29703,7 +29705,7 @@ var LandingPage = React.createClass({displayName: "LandingPage",
 
 module.exports = LandingPage;
 
-},{"./LandingPageElements":170,"react":157}],170:[function(require,module,exports){
+},{"./LandingPageElements":170,"./WelcomeModal":185,"react":157}],170:[function(require,module,exports){
 var React = require('react'), 
 	Name = require('./Name'), 
 	CareerDescription = require('./CareerDescription'), 
@@ -29749,7 +29751,8 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 		$(React.findDOMNode(this)).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
 			$(descriptionLeft).animate({left: "0px"});
 			$(descriptionRight).animate({right: "0px"});
-		});		
+		});
+
 	}, 
 
 	startAnimation: function () {
@@ -29777,7 +29780,7 @@ var LandingPageHeader = React.createClass({displayName: "LandingPageHeader",
 					React.createElement("div", {className: "col-md-8 col-md-offset-2"}, 
 						React.createElement(Name, null), 
 						React.createElement(CareerDescription, {ref: "careerDescription"}), 
-						React.createElement(WelcomeButton, null)
+						React.createElement(WelcomeButton, {ref: "welcomeButton"})
 					)
 				)
 			)
@@ -29829,13 +29832,109 @@ var React = require('react'),
 	EmailModal = require('./EmailModal');
 
 var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent",
+	activateNavbarPopovers: function () {
+		
+		$('#about.navbar_nav_list_item').popover({
+			content: "Check out my resume or the acknowledgements for this webpage here.",
+			title: "A lil' bit about me.", 
+			placement: 'bottom', 
+			trigger: 'manual', 
+			delay: {'show': 2000, 'hide': 2000}
+		}); 
+
+		$('#portfolio.navbar_nav_list_item').popover({
+			content: "Take a look at the Tweet Cloud or the reimplementation of the NNFF webpage I'm working on.",
+			title: "Some of my projects.", 
+			placement: 'bottom', 
+			trigger: 'manual', 
+			delay: {'hide': 2000}
+		}); 		
+
+		$('#contact.navbar_nav_list_item').popover({
+			content: "If you'd like to get in touch with me, you can find the links to my email and various social media accounts here.",
+			title: "Say hi!  I don't bite.", 
+			placement: 'bottom', 
+			trigger: 'manual', 
+			delay: {'hide': 2000}
+		}); 
+
+		$('#navbar_right_icons_container').popover({
+			content: "Want to see the code or get in touch with me now?  These icons will take you where you need to go.",
+			title: "Quick links.", 
+			placement: 'bottom', 
+			trigger: 'manual', 
+			delay: {'hide': 2000}
+		}); 
+	}, 
+
+	deactivateNavbarPopovers: function () {
+			
+		$('.navbar_nav_list_item').popover('destroy');
+	}, 
+
+	showcaseNavbarPopovers: function () {
+		console.log("SHOWCASING NAVBAR POPOVERS.");
+		$('#about.navbar_nav_list_item')
+			.addClass('highlighted_tab')
+			.popover('show');
+
+		setTimeout(function() {
+			$('#about.navbar_nav_list_item')
+				.removeClass('highlighted_tab')
+				.popover('hide');
+		}, 2500);
+
+		$('#about.navbar_nav_list_item').on('hidden.bs.popover', 
+			function () {
+				console.log("STEP TWO OF SHOWCASE.");
+				 $('#portfolio.navbar_nav_list_item')
+					.addClass('highlighted_tab')
+					.popover('show');
+
+				setTimeout(function() {
+					$('#portfolio.navbar_nav_list_item')
+						.removeClass('highlighted_tab')
+						.popover('hide');
+				}, 2500);
+			});
+
+		$('#portfolio.navbar_nav_list_item').on('hidden.bs.popover', 
+			function () {
+				console.log("STEP THREE OF SHOWCASE.");
+				$('#contact.navbar_nav_list_item')
+					.addClass('highlighted_tab')
+					.popover('show');
+
+				setTimeout(function() {
+					$('#contact.navbar_nav_list_item')
+						.removeClass('highlighted_tab')
+						.popover('hide');
+				}, 2500);
+			});
+
+		$('#contact.navbar_nav_list_item').on('hidden.bs.popover', 
+			function () {
+				console.log("STEP FOUR OF SHOWCASE.");
+				$('#navbar_right_icons_container')
+					.addClass('highlighted_tab')
+					.popover('show');
+
+				setTimeout(function() {
+					$('#navbar_right_icons_container')
+						.removeClass('highlighted_tab')
+						.popover('hide');
+				}, 2500);
+			});
+
+	}, 
+
 	determineViewToRender: function () {
 		var viewToRender;
 		
 		var views = {
 			home: {
 				path: '/', 
-				component: React.createElement(LandingPage, null)
+				component: React.createElement(LandingPage, {handleHiddenWelcomeModal: this.showcaseNavbarPopovers})
 			}, 
 			acknowledgements: {
 				path: '/about/acknowledgements/', 
@@ -29860,7 +29959,18 @@ var PortfolioPageContent = React.createClass({displayName: "PortfolioPageContent
 		return viewToRender;
 	}, 
 
+	componentDidMount: function () {
+		
+		this.activateNavbarPopovers();
+	}, 
+
+	componentWillUnmount: function () {
+		
+		this.deactivateNavbarPopovers();
+	}, 
+
 	render: function () {
+
 		return (
 			React.createElement("div", {id: "#page_component_anchor", className: "fullHeightWidth"}, 
 				this.determineViewToRender(), 
@@ -30222,8 +30332,8 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 	render: function () {
 		return (
 			React.createElement("div", {id: "welcome_button_container", style: this.getStyles().welcomeButtonContainer}, 
-				React.createElement("button", {id: "welcomeButton", className: this.state.welcomeButtonClassString, ref: "welcomeButton", style: this.getStyles().welcomeButton}, 
-					React.createElement("a", {id: "welcomeButtonLink", className: this.state.welcomeButtonLinkClassString, ref: "welcomeButtonLink", href: "#", style: this.getStyles().welcomeButtonLink}, "More Info")
+				React.createElement("button", {id: "welcomeButton", className: this.state.welcomeButtonClassString, ref: "welcomeButton", type: "button", "data-toggle": "modal", "data-target": "#welcome_modal", style: this.getStyles().welcomeButton}, 
+					React.createElement("a", {id: "welcomeButtonLink", className: this.state.welcomeButtonLinkClassString, ref: "welcomeButtonLink", style: this.getStyles().welcomeButtonLink}, "More Info")
 				)
 			)			
 		);
@@ -30233,6 +30343,59 @@ var WelcomeButton = React.createClass({displayName: "WelcomeButton",
 module.exports = WelcomeButton;
 
 },{"react":157}],185:[function(require,module,exports){
+var React = require('react');
+
+var WelcomeModal = React.createClass({displayName: "WelcomeModal",
+	componentDidMount: function () {
+		
+		$('#welcome_modal').on('hidden.bs.modal', function (e) {
+			console.log("HANDLING HIDDEN WELCOME MODAL.");
+			this.props.handleHiddenWelcomeModal();
+		
+		}.bind(this));
+	}, 
+
+	componentWillUnmount: function (e) {
+
+		$('#welcome_modal').off('hidden.bs.modal');
+	}, 
+
+	render: function () {
+		return (
+			React.createElement("div", {id: "welcome_modal", className: "modal welcome_modal_animation", tabIndex: "-1", role: "dialog", "aria-labelledby": "email_modal", "aria-hidden": "true"}, 
+				React.createElement("div", {className: "modal-dialog"}, 
+					React.createElement("div", {className: "modal-content"}, 
+						React.createElement("div", {className: "modal-header"}, 
+							React.createElement("button", {id: "welcome_modal_close_button", type: "button", className: "close", "data-dismiss": "modal", "aria-hidden": "true"}, "×"), 
+							React.createElement("h4", {className: "modal-title"}, "Hey there!  Thanks for visiting my page!")
+						), 
+						React.createElement("div", {className: "modal-body"}, 
+							React.createElement("div", {id: "modal_body_content_wrapper"}, 
+								React.createElement("img", {id: "vinny_welcome_img", className: "img-thumbnail", src: "images/vinnyph.png"}), 
+								React.createElement("p", null, React.createElement("strong", null, "My name is Vinny Sanchez and I am a web developer based out of New York City.")), 
+								React.createElement("p", null, "I began programming casually about two years ago because I tried it out and it seemed like a lot of fun." + ' ' +  
+								"Over time, it has become more than fun for me — but a way of life.  Anyone who writes code for a living" + ' ' + 
+								"knows the feeling.  You have a certain drive — an almost obsessive compulsion to create something new" + ' ' + 
+								"all the time.  You're solving problems on a daily basis, and there's always new obstacles to face, and" + ' ' + 
+								"novel concepts to learn.  Conceptually, you're dealing with both abstract, higher-level thinking about" + ' ' + 
+								"program architecture, as well as handling lower-level implementation details.  ", React.createElement("strong", null, "It's challenging, and" + ' ' + 
+								"it's a lot of work, and I absolutely love every moment of it.")), 
+								React.createElement("p", null, "Anyway, you can view some of my work at this page.  If you like it, don't forget to check out my resume" + ' ' + 
+								"or my GitHub, Twitter or Stack Overflow accounts.  And definitely me know what you think!"), 
+								React.createElement("p", null, "Again, thanks for stopping by!"), 
+								React.createElement("p", null, React.createElement("em", null, "- Vinny"))
+							)
+						)
+					)
+				)
+			)				
+		);
+	}
+});
+
+module.exports = WelcomeModal;
+
+},{"react":157}],186:[function(require,module,exports){
 var React = require('react'),  
 	PortfolioPageContent = require('./PortfolioPageContent');
 
@@ -30241,7 +30404,7 @@ $(document).ready(function() {
 		React.render(React.createElement(PortfolioPageContent, null), document.getElementById('page_content_wrapper'));
 });
 
-},{"./PortfolioPageContent":172,"react":157}],186:[function(require,module,exports){
+},{"./PortfolioPageContent":172,"react":157}],187:[function(require,module,exports){
 module.exports = function (arrayOfFunctions) {
 	
 	arrayOfFunctions.forEach(function (func) {
@@ -30251,7 +30414,7 @@ module.exports = function (arrayOfFunctions) {
 	
 };
 
-},{}],187:[function(require,module,exports){
+},{}],188:[function(require,module,exports){
 /*!
   Copyright (c) 2015 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -30300,4 +30463,4 @@ if (typeof define !== 'undefined' && define.amd) {
 	});
 }
 
-},{}]},{},[185]);
+},{}]},{},[186]);

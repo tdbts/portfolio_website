@@ -68,8 +68,8 @@ var WelcomeButton = React.createClass({
 	render: function () {
 		return (
 			<div id="welcome_button_container" style={this.getStyles().welcomeButtonContainer}>
-				<button id="welcomeButton" className={this.state.welcomeButtonClassString} ref="welcomeButton" style={this.getStyles().welcomeButton}>
-					<a id="welcomeButtonLink" className={this.state.welcomeButtonLinkClassString} ref="welcomeButtonLink" href="#" style={this.getStyles().welcomeButtonLink}>More Info</a>
+				<button id="welcomeButton" className={this.state.welcomeButtonClassString} ref="welcomeButton" type="button" data-toggle="modal" data-target="#welcome_modal" style={this.getStyles().welcomeButton}>
+					<a id="welcomeButtonLink" className={this.state.welcomeButtonLinkClassString} ref="welcomeButtonLink" style={this.getStyles().welcomeButtonLink}>More Info</a>
 				</button>
 			</div>			
 		);

@@ -1,0 +1,31 @@
+.modal.welcome_modal_animation .modal-dialog {
+	-webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    transform: scale(0.1);	
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;	
+    top: 300px; 
+    opacity: 0;
+}
+
+.modal.welcome_modal_animation.in .modal-dialog {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform: translate3d(0, -300px, 0);
+    transform: translate3d(0, -300px, 0);
+    opacity: 1;
+}
+
+#vinny_welcome_img {
+    float: left;
+    height: 200px;
+    margin-right: 10px;
+}
+
+#modal_body_content_wrapper p {
+    line-height: 1.5em;
+}

@@ -13,11 +13,36 @@
 	margin-bottom: 0px;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
+
 .navbar_nav_list_item {
 	padding-top: 2px;
 	padding-bottom: 1px;
+    -webkit-transition: background-color 1000ms ease-in-out;
+    -moz-transition: background-color 1000ms ease-in-out;
+    -o-transition: background-color 1000ms ease-in-out;
+    -ms-transition: background-color 1000ms ease-in-out;
+    transition: background-color 1000ms ease-in-out;	
 }
 
 .bar-icon {
 	font-size: 1.6em;
+}
+
+.highlighted_tab {
+	background: -webkit-transparent radial-gradient(#fff 30%, #d8d8d8 60%, grey 100%) repeat scroll 0% 0%; /* Safari 5.1 to 6.0 */
+	background: -o-transparent radial-gradient(#fff 30%, #d8d8d8 60%, grey 100%) repeat scroll 0% 0%; /* For Opera 11.6 to 12.0 */
+	background: -moz-transparent radial-gradient(#fff 30%, #d8d8d8 60%, grey 100%) repeat scroll 0% 0%; /* For Firefox 3.6 to 15 */
+	background: transparent radial-gradient(#fff 30%, #d8d8d8 60%, grey 100%) repeat scroll 0% 0%; /* Standard syntax */
+}
+
+.popover-title {
+	font-weight: bold;
+}
+
+.popover-content {
+	line-height: 1.5em;
 }
