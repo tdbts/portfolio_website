@@ -8,7 +8,12 @@ var gulp = require('gulp'),
 	browserify = require('browserify'), 
 	reactify = require('reactify'), 
 	logChanges = require('./src/logChanges'), 
+	uglify = require('gulp-uglify'), 
+	buffer = require('vinyl-buffer'),
+	gulpif = require('gulp-if'),  
 	nodeInspector = require('gulp-node-inspector');
+
+var env = process.env.NODE_ENV || 'development';
 
 gulp.task('build-less', function () {
 	console.log("BUILDING LESS.");
@@ -22,15 +27,21 @@ gulp.task('browserify', function () {
 	console.log("BUNDLING FILES WITH BROWSERIFY and REACTIFY.");
 
 	var bundler = browserify({
+
 		entries: ['./public/components/index.jsx'], 
-		extensions: ['.jsx']
-	}).transform(reactify);
+		extensions: ['.jsx'], 
+		debug: env === 'development'
+
+	})
+	.transform(reactify);
 
 	var bundle = function () {
 		return bundler
 			.bundle()
 			.pipe(source('bundle.js'))
-			.pipe(gulp.dest('./public/dist'));
+			.pipe(buffer())
+			.pipe(gulpif(env === 'production', uglify()))
+			.pipe(gulp.dest('./public/dist/build'));
 	};
 
 	return bundle();
