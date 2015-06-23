@@ -7,11 +7,12 @@ var gulp = require('gulp'),
 	source = require('vinyl-source-stream'), 
 	browserify = require('browserify'), 
 	reactify = require('reactify'), 
-	logChanges = require('./src/logChanges'), 
 	uglify = require('gulp-uglify'), 
 	buffer = require('vinyl-buffer'),
 	gulpif = require('gulp-if'),  
-	nodeInspector = require('gulp-node-inspector');
+	minifyCss = require('gulp-minify-css'), 
+	nodeInspector = require('gulp-node-inspector'), 
+	logChanges = require('./src/logChanges'); 
 
 var env = process.env.NODE_ENV || 'development';
 
@@ -20,7 +21,9 @@ gulp.task('build-less', function () {
 
 	return gulp.src('./public/stylesheets/less/styles.less')
 		.pipe(less())
-		.pipe(gulp.dest('./public/stylesheets/css'));
+		.pipe(gulp.dest('./public/stylesheets/css'))
+		.pipe(minifyCss())
+		.pipe(gulp.dest('./public/dist/build'));
 });
 
 gulp.task('browserify', function () { 

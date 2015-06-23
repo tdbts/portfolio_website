@@ -27,6 +27,7 @@
     "gulp-if": "^1.2.5",
     "gulp-jshint": "^1.10.0",
     "gulp-less": "^3.0.3",
+    "gulp-minify-css": "^1.1.6",
     "gulp-node-inspector": "0.0.3",
     "gulp-nodemon": "^2.0.2",
     "gulp-notify": "^2.2.0",

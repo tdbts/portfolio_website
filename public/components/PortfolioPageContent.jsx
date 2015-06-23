@@ -3,42 +3,43 @@ var React = require('react'),
 	AcknowledgementsPage = require('./AcknowledgementsPage'), 
 	ContactPage = require('./ContactPage'), 
 	TweetCloud = require('./TweetCloud'), 
-	EmailModal = require('./EmailModal');
+	EmailModal = require('./EmailModal'), 
+	ShowcasePopover = require('../javascripts/ShowcasePopover'), 
+	displayPopover = require('../javascripts/displayPopover'), 
+	$ = window.jQuery || require('jquery');
 
 var PortfolioPageContent = React.createClass({
 	activateNavbarPopovers: function () {
 		
-		$('#about.navbar_nav_list_item').popover({
-			content: "Check out my resume or the acknowledgements for this webpage here.",
-			title: "A lil' bit about me.", 
-			placement: 'bottom', 
-			trigger: 'manual', 
-			delay: {'show': 2000, 'hide': 2000}
-		}); 
+		var showcasePopovers = [], 
+			popoverOptions = {
+				'about.navbar_nav_list_item': {
+					content: "Check out my resume or the acknowledgements for this webpage here.", 
+					title: "A lil' bit about me."
+				}, 
+				'portfolio.navbar_nav_list_item': {
+					content: "Take a look at the Tweet Cloud or the reimplementation of the NNFF webpage I'm working on.",
+					title: "Some of my projects."
+				}, 
+				'contact.navbar_nav_list_item': {
+					content: "If you'd like to get in touch with me, you can find the links to my email and various social media accounts here.",
+					title: "Say hi!  I don't bite."
+				}, 
+				'navbar_right_icons_container': {
+					content: "Want to see the code or get in touch with me now?  These icons will take you where you need to go.",
+					title: "Quick links."
+				}
+			};
 
-		$('#portfolio.navbar_nav_list_item').popover({
-			content: "Take a look at the Tweet Cloud or the reimplementation of the NNFF webpage I'm working on.",
-			title: "Some of my projects.", 
-			placement: 'bottom', 
-			trigger: 'manual', 
-			delay: {'hide': 2000}
-		}); 		
+		for (var popoverOption in popoverOptions) {
+			var options = popoverOptions[popoverOption]; 
 
-		$('#contact.navbar_nav_list_item').popover({
-			content: "If you'd like to get in touch with me, you can find the links to my email and various social media accounts here.",
-			title: "Say hi!  I don't bite.", 
-			placement: 'bottom', 
-			trigger: 'manual', 
-			delay: {'hide': 2000}
-		}); 
+			showcasePopovers.push(new ShowcasePopover(popoverOption, options.content, options.title));
+		}
 
-		$('#navbar_right_icons_container').popover({
-			content: "Want to see the code or get in touch with me now?  These icons will take you where you need to go.",
-			title: "Quick links.", 
-			placement: 'bottom', 
-			trigger: 'manual', 
-			delay: {'hide': 2000}
-		}); 
+		showcasePopovers.forEach(function (popover) {
+			popover.activate(); 
+		});
 	}, 
 
 	deactivateNavbarPopovers: function () {
@@ -47,58 +48,24 @@ var PortfolioPageContent = React.createClass({
 	}, 
 
 	showcaseNavbarPopovers: function () {
-		console.log("SHOWCASING NAVBAR POPOVERS.");
-		$('#about.navbar_nav_list_item')
-			.addClass('highlighted_tab')
-			.popover('show');
+		var selectors = [
+			'about.navbar_nav_list_item',
+			'portfolio.navbar_nav_list_item', 
+			'contact.navbar_nav_list_item', 
+			'navbar_right_icons_container'
+		]; 
 
-		setTimeout(function() {
-			$('#about.navbar_nav_list_item')
-				.removeClass('highlighted_tab')
-				.popover('hide');
-		}, 2500);
+		selectors.forEach(function (selector, index) { 
+			if (index === 0) {
+				displayPopover(selector);
+			}
 
-		$('#about.navbar_nav_list_item').on('hidden.bs.popover', 
-			function () {
-				console.log("STEP TWO OF SHOWCASE.");
-				 $('#portfolio.navbar_nav_list_item')
-					.addClass('highlighted_tab')
-					.popover('show');
-
-				setTimeout(function() {
-					$('#portfolio.navbar_nav_list_item')
-						.removeClass('highlighted_tab')
-						.popover('hide');
-				}, 2500);
-			});
-
-		$('#portfolio.navbar_nav_list_item').on('hidden.bs.popover', 
-			function () {
-				console.log("STEP THREE OF SHOWCASE.");
-				$('#contact.navbar_nav_list_item')
-					.addClass('highlighted_tab')
-					.popover('show');
-
-				setTimeout(function() {
-					$('#contact.navbar_nav_list_item')
-						.removeClass('highlighted_tab')
-						.popover('hide');
-				}, 2500);
-			});
-
-		$('#contact.navbar_nav_list_item').on('hidden.bs.popover', 
-			function () {
-				console.log("STEP FOUR OF SHOWCASE.");
-				$('#navbar_right_icons_container')
-					.addClass('highlighted_tab')
-					.popover('show');
-
-				setTimeout(function() {
-					$('#navbar_right_icons_container')
-						.removeClass('highlighted_tab')
-						.popover('hide');
-				}, 2500);
-			});
+			if (selectors[index + 1]) {
+				$('#' + selector).on('hidden.bs.popover', function () {
+					displayPopover(selectors[index + 1]);
+				});
+			}
+		});
 
 	}, 
 
