@@ -47,13 +47,7 @@ var PortfolioPageContent = React.createClass({
 		$('.navbar_nav_list_item').popover('destroy');
 	}, 
 
-	showcaseNavbarPopovers: function () {
-		var selectors = [
-			'about.navbar_nav_list_item',
-			'portfolio.navbar_nav_list_item', 
-			'contact.navbar_nav_list_item', 
-			'navbar_right_icons_container'
-		]; 
+	seriallyDisplayNavbarPopovers: function (selectors) {
 
 		selectors.forEach(function (selector, index) { 
 			if (index === 0) {
@@ -65,7 +59,30 @@ var PortfolioPageContent = React.createClass({
 					displayPopover(selectors[index + 1]);
 				});
 			}
-		});
+		});		
+	}, 
+
+	showcaseNavbarPopovers: function () {
+		
+		var selectors = [
+			'about.navbar_nav_list_item',
+			'portfolio.navbar_nav_list_item', 
+			'contact.navbar_nav_list_item', 
+			'navbar_right_icons_container'
+		]; 
+
+		if (window.innerWidth < 768 && !($('#myNavbar').hasClass('in'))) {
+			
+			$('div.navbar-header button').trigger('click'); 
+
+			$('#myNavbar').on('shown.bs.collapse', function () {
+				
+				this.seriallyDisplayNavbarPopovers(selectors);
+			}.bind(this));	
+		
+		} else {
+			this.seriallyDisplayNavbarPopovers(); 
+		} 
 
 	}, 
 
