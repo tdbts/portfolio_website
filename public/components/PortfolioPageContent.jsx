@@ -8,7 +8,19 @@ var React = require('react'),
 	displayPopover = require('../javascripts/displayPopover'), 
 	$ = window.jQuery || require('jquery');
 
-var PortfolioPageContent = React.createClass({
+var PortfolioPageContent = React.createClass({ 
+
+	getDefaultProps: function () {
+		return {
+			navbarListItemSelectors: [
+				'about.navbar_nav_list_item',
+				'portfolio.navbar_nav_list_item', 
+				'contact.navbar_nav_list_item', 
+				'navbar_right_icons_container'				
+			]		
+		};	
+	},		
+
 	activateNavbarPopovers: function () {
 		
 		var showcasePopovers = [], 
@@ -47,7 +59,7 @@ var PortfolioPageContent = React.createClass({
 		$('.navbar_nav_list_item').popover('destroy');
 	}, 
 
-	seriallyDisplayNavbarPopovers: function (selectors) {
+	seriallyDisplayNavbarPopovers: function (selectors, callback) {
 
 		selectors.forEach(function (selector, index) { 
 			if (index === 0) {
@@ -58,30 +70,49 @@ var PortfolioPageContent = React.createClass({
 				$('#' + selector).on('hidden.bs.popover', function () {
 					displayPopover(selectors[index + 1]);
 				});
+			} 
+
+			if (callback && typeof callback === 'function') {
+				$('#' + selectors[selectors.length - 1]).on('hidden.bs.popover', function () {
+					callback();
+				});
 			}
 		});		
 	}, 
 
+	onShownCollapseMenu: function () {		
+		
+		$('#myNavbar').on('shown.bs.collapse', function () {
+			
+			this.seriallyDisplayNavbarPopovers(this.props.navbarListItemSelectors, this.removeOnShownCollapseMenu);
+		
+		}.bind(this));		
+	}, 
+
+	revealCollapsedNavMenu: function () {
+
+		$('div.navbar-header button').trigger('click'); 		
+	}, 
+
+	removeOnShownCollapseMenu: function () {
+
+		$('#myNavbar').off('shown.bs.collapse'); 		
+	}, 
+
 	showcaseNavbarPopovers: function () {
 		
-		var selectors = [
-			'about.navbar_nav_list_item',
-			'portfolio.navbar_nav_list_item', 
-			'contact.navbar_nav_list_item', 
-			'navbar_right_icons_container'
-		]; 
-
 		if (window.innerWidth < 768 && !($('#myNavbar').hasClass('in'))) {
 			
-			$('div.navbar-header button').trigger('click'); 
+			[
+				this.onShownCollapseMenu, 
+				this.revealCollapsedNavMenu
+			]
+			.forEach(function (func) {
+				func();
+			});
 
-			$('#myNavbar').on('shown.bs.collapse', function () {
-				
-				this.seriallyDisplayNavbarPopovers(selectors);
-			}.bind(this));	
-		
 		} else {
-			this.seriallyDisplayNavbarPopovers(); 
+			this.seriallyDisplayNavbarPopovers(this.props.navbarListItemSelectors); 
 		} 
 
 	}, 
