@@ -137,35 +137,37 @@ $(document).ready(function() {
 		var activatePopover = function(popoverID) {
 
 			$(popoverID).popover({content: 'Thanks for reaching out!'}, 'click');
-		};
+		}; 
+
+		var hideEmailModal = function () {
+			$('#emailModal').modal('hide');
+			clearField(['#first_name', '#last_name', '#email', '#comments']);
+			$('#send_email_btn').popover('hide');			
+		}; 
 
 		var emailModalAJAX = function() {
 			
 			$('#send_email_btn').on('click', function(event) {
 
-				var firstName = getVal('#first_name');
-				var lastName = getVal('#last_name');
-				var email = getVal('#email');
-				var comments = getVal('#comments');
-				var url = './src/sendEmail.js';
-
-				var request = $.ajax({
-
-					type: "POST",
-					url: url,
-					data: {
-						first_name: firstName,
-						last_name: lastName,
-						email: email,
-						comments: comments
-					}
-				});
+				var firstName = getVal('#first_name'), 
+					lastName = getVal('#last_name'), 
+					email = getVal('#email'), 
+					comments = getVal('#comments'), 
+					url = './src/sendEmail.js'
+					request = $.ajax({
+						type: "POST",
+						url: url,
+						data: {
+							first_name: firstName,
+							last_name: lastName,
+							email: email,
+							comments: comments
+						}
+					});
 
 				request.done(function() {
 					
-					$('#emailModal').modal('hide');
-					clearField(['#first_name', '#last_name', '#email', '#comments']);
-					$('#send_email_btn').popover('hide');
+					hideEmailModal(); 
 				});
 
 				request.fail(function() {
