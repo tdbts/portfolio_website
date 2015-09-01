@@ -32,7 +32,6 @@ $(document).ready(function() {
 			$(theClass).not(theID).fadeOut();
 		};
 
-		// Make input fields responsive to enter key
 		var makeEnterKeyDoSomething = function(selector, func) {
 			
 			$(selector).keydown(function(e) {
@@ -881,8 +880,8 @@ $(document).ready(function() {
 		modules: [domModule, domModule, cloudModule, cloudModule, domModule], 
 		methods: ['activateSearchField', 'activateSearchField', 'activateTenMoreTweetsButton', 'activateModalCloseButtons', 'emailModalAJAX'], 
 		params: [
-			['#createTwitterFeedCloud', '#feed_cloud_input', searchModule.executeTwitterAccountSearch.bind(searchModule)],
-			['#createTweetSearchCloud', '#search_cloud_input', searchModule.executeTwitterTermSearch.bind(searchModule)],
+			['#feed_cloud_input_button', '#feed_cloud_input', searchModule.executeTwitterAccountSearch.bind(searchModule)],
+			['#search_cloud_input_button', '#search_cloud_input', searchModule.executeTwitterTermSearch.bind(searchModule)],
 			[],
 			['.modal_close'],
 			[]
