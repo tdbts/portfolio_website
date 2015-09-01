@@ -545,7 +545,7 @@ $(document).ready(function() {
 
 						setOfTenTweets.getCurrentTweets();
 
-						if (searchURL === 'twitterKeywordSearch') {
+						if (searchURL === 'api/twitterKeywordSearch') {
 
 							cloudModule.setCloudAutoRefreshInterval(searchURL);
 							progressButtonHandler.init('#progress_button');
