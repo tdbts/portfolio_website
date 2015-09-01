@@ -262,36 +262,41 @@ $(document).ready(function() {
 			return {text: theText, id: theID, weight: 0.1, url: theURL, isImage: imageInTweet};
 		};
 
+		var getTweetDisplayText = function (tweetObj, dateCreator, url) {
+			var displayText; 
+
+			if (url === "api/twitterTimelineSearch") {
+
+				tweetDate = dateCreator(tweetObj.date, false);
+
+				displayText = tweetObj.text + " \n" + tweetDate;
+			}
+
+			if (url === "api/twitterKeywordSearch") {
+
+				var userName = "- @" + tweetObj.screen_name;
+				tweetDate = dateCreator(tweetObj.date, true);
+
+				displayText = "\n" + tweetObj.text + "\n" + userName + "\n" + tweetDate;
+			} 
+
+			return displayText; 			
+		};
+
 		// Adds tweet tag objects to the array of tweet tags
 		// Formatting of the text depends upon which search URL is invoked
 		var addTweetTags = function(arrayOfTweetObjects, variableToSaveTo, whichResults) {
 			
-			var tweetText, tweetDate, url, displayText;
+			var tweetDate, 
+				displayText, 
+				tweet, 
+				newTweetTagObject;  
 
 			for (var i = 0; i < arrayOfTweetObjects.length; i++) {
 				
-				var tweet = arrayOfTweetObjects[i];
-
-				tweetText = tweet.text;
-				url = tweet.url;
-				imageInTweet = tweet.isImage;
-
-				if (whichResults === "api/twitterTimelineSearch") {
-
-					tweetDate = createDate(tweet.date, false);
-
-					displayText = tweetText + " \n" + tweetDate;
-				}
-
-				if (whichResults === "api/twitterKeywordSearch") {
-
-					var userName = "- @" + tweet.screen_name;
-					tweetDate = createDate(tweet.date, true);
-
-					displayText = "\n" + tweetText + "\n" + userName + "\n" + tweetDate;
-				}
-
-				var newTweetTagObject = createObjectForCloud(displayText, url, variableToSaveTo, imageInTweet);
+				tweet = arrayOfTweetObjects[i];
+				displayText = getTweetDisplayText(tweet, createDate, whichResults); 
+				newTweetTagObject = createObjectForCloud(displayText, tweet.url, variableToSaveTo, tweet.isImage);
 
 				variableToSaveTo.push(newTweetTagObject);
 			}
