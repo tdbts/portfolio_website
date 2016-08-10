@@ -6640,6 +6640,9 @@ a {
 .popover-content {
   line-height: 1.5em;
 }
+#top {
+  background-size: cover ! important;
+}
 #career_description_container {
   height: 70px;
 }
